@@ -1,0 +1,274 @@
+---
+title: "Inferencias y Pruebas de Hipótesis"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Paquetes necesarios
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+library(vcd)
+library(tidyverse)
+library(Hmisc)
+library(ggplot2)
+```
+
+
+## Inferencias y Pruebas de Hipótesis
+
+La **inferencia estadística** es una rama de la estadística que se encarga de hacer **predicciones o generalizaciones** acerca de una población **a partir de una muestra**. Las **pruebas de hipótesis** son un procedimiento estadístico que se utiliza para **tomar decisiones** acerca de una población **a partir de una muestra**. 
+
+### Ejemplo 1: Inferencia sobre la media de una muestra
+
+Una técnica ambiental mide la concentración de PCB en el agua en 30 puntos de monitoreo en un río cercano a varias industrias y que desemboca en un embalse.  La concentración permitida de PCB es hasta un máximo de 0.5 $\mu g/L$ en agua de consumo humano.  La técnica quiere saber si las concentraciones medidas en el río son mayores que el límite permitido, usando un intervalo de confianza de 95%.
+
+Los datos de concentración de PCB en el agua en los 30 puntos de monitoreo son:
+
+```{r}
+# Datos de concentración de PCB en el agua
+conc_pcb <- read.csv("datos_pcb.csv")
+``` 
+
+La media de la concentración de PCB en el agua en los 30 puntos de monitoreo es de `r round(mean(conc_pcb$concPCB),2)` $\mu g/L$.
+
+Las hipótesis son las siguientes:
+
+- Hipótesis nula ($H_0$): $\mu = 0.5$ $\mu g/L$.
+- Hipótesis alternativa ($H_1$): $\mu > 0.5$ $\mu g/L$.
+
+Para realizar la prueba sobre la media de una muestra, se puede usar la función `t.test()` de R:
+
+```{r}
+# Prueba de hipótesis para la media de una muestra
+t1 <- t.test(conc_pcb$concPCB, mu = 0.5, alternative = "greater", conf.level = 0.95)
+t1
+```
+
+**Interpretación:** La media de la concentración de PCB en el agua en los 30 puntos de monitoreo es de `r mean(conc_pcb$concPCB)` $\mu g/L$. El intervalo de confianza del 95% para la media de la concentración de PCB en el agua es $-\infty$`r t1[["conf.int"]]`. El valor p de la prueba de hipótesis es `r t1[["p.value"]]`.
+
+**Conclusión:** Dado que el valor p de la prueba de hipótesis es menor que el nivel de significancia $\alpha = 0.05$, se rechaza la hipótesis nula. Por lo tanto, hay suficiente evidencia para concluir que la concentración de PCB en el agua en los 30 puntos de monitoreo es mayor que el límite permitido de 0.5 $\mu g/L.
+
+#### EJERCICIO: ¿Cuál sería el resultado si se disminuye el límite aceptable de PCB en agua a 0.6 $\mu g/L$?
+
+### Ejemplo 2: Inferencia y prueba de hipótesis sobre la diferencia de medias de dos muestras
+
+Un estudio de campo se realizó para comparar la masa de semillas de *Thespesia populnea* en dos años diferentes. 
+
+```{r}
+semillas <- read.csv("semillas-sample.csv")
+str(semillas)
+```
+
+Las hipótesis son las siguientes:
+
+- Hipótesis nula ($H_0$): $\mu_1 = \mu_2$.
+- Hipótesis alternativa ($H_1$): $\mu_1 \neq \mu_2$.
+
+Para realizar la prueba sobre la diferencia de medias de dos muestras, se puede usar la función `t.test()` de R:
+
+```{r}
+# Prueba de hipótesis para la diferencia de medias de dos muestras
+t_test_result <- t.test(masa_g ~ year, data = semillas)
+t_test_result
+```
+
+**Interpretación:** La diferencia entre la dos medias está alrededor de 0, según lo revela el intervalo de confianza del 95% para la diferencia de medias, que es `r t_test_result[["conf.int"]]`. El valor p de la prueba de hipótesis es `r t_test_result[["p.value"]]`.
+
+**Conclusión:** Dado que el valor p de la prueba de hipótesis es mayor que el nivel de significancia $\alpha = 0.05$, no se rechaza la hipótesis nula. Por lo tanto, no hay suficiente evidencia para concluir que hay una diferencia significativa en la masa de las semillas de *Thespesia populnea* en los dos años.
+
+#### EJERCICIO: Realizar la prueba de hipótesis para las medias de la longitud de las semillas.
+
+#### EJERCICIO: Construya gráficas de caja para comparar las distribuciones de la masa y longitud de las semillas en los dos años.
+
+---
+
+### Ejemplo 3: Inferencia y prueba de hipótesis sobre la independencia de dos variables categóricas
+
+Vamos a considerar un estudio clínico en el que se evalúa la eficacia de dos tratamientos para una enfermedad. Se registraron los resultados de los pacientes tratados con los dos tratamientos y se desea determinar si hay una asociación entre el tratamiento y la recuperación de los pacientes.
+
+Los datos se presentan en la siguiente tabla de contingencia:
+
+```{r}
+# Instalar y cargar el paquete vcd
+library(vcd)
+
+# Example data
+datos2 <- data.frame(
+  Tratamiento = c("Droga", "Droga", "Droga", "Placebo", "Placebo", "Placebo"),
+  Respuesta = c("Mejoría", "Igual", "Empeora", "Mejoría", "Igual", "Empeora"),
+  Count = c(30, 5, 5, 20, 10, 10)
+)
+```
+
+##### Tabla de contingencia
+
+```{r}
+# Create contingency table
+contingency_table2 <- xtabs(Count ~ Tratamiento + Respuesta, data = datos2)
+contingency_table2
+```
+
+Las hipótesis son las siguientes:
+
+- Hipótesis nula ($H_0$): Las variables `Tratamiento` y `Respuesta` son independientes.
+- Hipótesis alternativa ($H_1$): Las variables `Tratamiento` y `Respuesta` no son independientes.
+
+Vamos a realizar una prueba de Chi-cuadrado para determinar si hay una asociación significativa entre el tratamiento y la recuperación de los pacientes.
+
+```{r}
+# Perform chi-squared test
+chi_test2 <- chisq.test(contingency_table2)
+
+# Observed values
+observed2 <- chi_test2$observed
+
+# Expected values
+expected2 <- chi_test2$expected
+
+# Print results
+observed2
+# addmargins(expected2)
+expected2
+chi_test2
+```
+
+**Interpretación:** Los valores observados y esperados de la tabla de contingencia se presentan arriba. El valor p de la prueba de Chi-cuadrado es `r chi_test2[["p.value"]]`.
+
+**Conclusión:** Dado que el valor p de la prueba de Chi-cuadrado es mayor que el nivel de significancia $\alpha = 0.05$, no se rechaza la hipótesis nula. Por lo tanto, no hay suficiente evidencia para concluir que hay una asociación significativa entre el tratamiento y la recuperación de los pacientes.
+
+#### EJERCICIO: Se encontró que las observaciones en los pacientes con placebo y mejoría estaban duplicados.  Haga la corrección y recalcule la prueba. 
+
+---
+
+### Análisis de Varianza
+
+El análisis de varianza (ANOVA) es una técnica estadística que se utiliza para comparar las medias de tres o más grupos. El ANOVA se puede utilizar para determinar si hay diferencias significativas entre los grupos y cuáles son los grupos que difieren entre sí.
+
+```{r}
+melocactus <- read_excel("melocactus.xlsx", sheet = "2019")
+str(melocactus)
+```
+
+Las hipótesis son las siguientes:
+
+- Hipótesis nula ($H_0$): Las medias de los grupos son iguales.
+- Hipótesis alternativa ($H_1$): Al menos una de las medias de los grupos es diferente.
+
+Vamos a realizar un análisis de varianza para determinar si hay diferencias significativas en la altura de los cactus en los diferentes grupos. 
+
+```{r}
+# Perform ANOVA
+anova_result <- aov(altura_planta ~ estado, data = melocactus)
+summary(anova_result)
+```
+
+**Interpretación:** La prueba del modelo ANOVA muestra que el factor `estado` tiene un efecto significativo en la altura de los cactus, con un valor p menor de 0.05.
+
+La prueba ANOVA no nos dice cuáles grupos son significativamente diferentes entre sí. Para determinar las diferencias entre los grupos, podemos realizar una prueba post-hoc, como la prueba de Tukey.
+Prueba Tukey para comparaciones múltiples:
+
+```{r}
+# Perform Tukey test
+tukey_result <- TukeyHSD(anova_result)
+tukey_result
+# Tukey graph
+par(cex = 0.6)
+plot(tukey_result)
+```
+
+**Conclusión:** Además de la prueba ANOVA, la prueba de Tukey muestra que hay diferencias significativas en la altura de los cactus entre los estados Saludable y Enfermo.
+
+#### EJERCICIO: Construir un gráfico de cajas para comparar las distribuciones de la altura de los cactus en los diferentes estados.
+
+#### EJERCICIO: Filtrar los valores de 0 en la longitud de la inflorescencia y realizar el ANOVA para comparar las medias de la longitud de la inflorescencia en los diferentes estados.
+
+---
+
+### Análisis de Correlación y Regresión
+
+El análisis de correlación y regresión es una técnica estadística que se utiliza para evaluar la relación entre dos o más variables. La correlación se utiliza para medir la fuerza y la dirección de la relación entre dos variables, mientras que la regresión se utiliza para predecir una variable a partir de otra.
+
+#### Correlación
+
+Vamos a realizar un análisis de correlación para evaluar la relación entre variables del estudio de diabetes y seleccionar variables para un modelo de regresión.
+
+```{r}
+diabetes <- read.csv("diabetes.csv")
+str(diabetes)
+```
+Primero haremos una correlación múltiple entre todas las variables:
+
+```{r}
+# Correlation matrix
+correlation_matrix <- cor(diabetes)
+correlation_matrix
+```
+
+Ahora vamos a obtener la significancia de los coeficientes de correlación.  
+
+```{r}
+# Calculate correlation matrix and p-values
+corr_results <- rcorr(as.matrix(diabetes))
+p_values <- corr_results$P
+p_values[is.na(p_values)] <- 0
+corr_matrix <- corr_results$r
+p_values
+```
+
+**Interpretación:** Los valores de p asociados con los coeficientes de correlación se presentan arriba. Un valor p menor que 0.05 indica una correlación significativa.
+
+**Conclusión:** Hay varias correlaciones significativas entre las variables del estudio de diabetes.  Por ejemplo, la correlación entre `Glucose` e `Insulin` es significativa.
+
+---
+
+### Regresión Lineal
+
+Vamos a realizar un análisis de regresión lineal para predecir la variable `y` a partir de la variable `x`.
+
+Seleccionamos variables con alta correlación y planteamos un modelo de regresión lineal simple.  Vamos a empezar con glucosa e insulina, usando la variable insulina para predecir la glucosa.
+
+
+```{r}
+# Fit linear regression model
+lm_model1 <- lm(Glucose ~ Insulin, data = diabetes)
+summary(lm_model1)
+coeficientes <- coef(lm_model1)
+```
+
+El valor de los coeficientes son el intercepto y la pendiente de la ecuación de la recta:
+
+$$
+\text{Glucose} = \beta_0 + \beta_1 \times \text{Insulin}
+$$
+```{r message=FALSE, warning=FALSE}
+# Gráfica de la recta de regresión con ecuación
+eq <- substitute(
+  italic(y) == a + b %.% italic(x),
+  list(
+    a = round(as.numeric(coeficientes[1]), 3),
+    b = round(as.numeric(coeficientes[2]), 3)
+  )
+)
+# plot
+ggplot(diabetes, aes(x = Insulin, y = Glucose)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  annotate("text", x = 600, y = 50, label = as.character(as.expression(eq)), parse = TRUE) +
+  labs(x = "Insulin", y = "Glucose")
+```
+
+**Figura 1:** Gráfica de dispersión de la variable `Insulin` vs. la variable `Glucose` con la recta de regresión lineal y su ecuación.
+
+**Interpretación:** El modelo de regresión lineal simple muestra que la variable `Insulin` es un predictor significativo de la variable `Glucose`, con un valor p menor que 0.05. Sin embargo el coeficiente de determinación $R^2$ es bajo, lo que indica que la variable `Insulin` explica una pequeña proporción de la variabilidad en la variable `Glucose`.
+
+**Conclusión:** La variable `Insulin` es un predictor significativo de la variable `Glucose`, pero no explica la mayor parte de la variabilidad en la variable `Glucose`.
+
+#### EJERCICIO: Realizar un modelo de regresión lineal simple para predecir la variable `Glucose` a partir de la variable `BMI`.
+
+#### EJERCICIO: Realizar un modelo de regresión lineal múltiple para predecir la variable `Glucose` a partir de las variables `Insulin` y `BMI`.
+

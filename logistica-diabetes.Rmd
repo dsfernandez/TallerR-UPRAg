@@ -1,0 +1,84 @@
+---
+title: "Regresión Logística - diabetes"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### paquetes
+
+```{r message=FALSE}
+# Cargar paquetes
+library(tidyverse)
+
+```
+
+## Regresión Logística
+
+### Cargar datos
+
+```{r}
+# Cargar datos desde archivo .csv
+diabetes <- read.csv("diabetes.csv")
+head(diabetes)
+```
+
+### Filtrar datos para no tener valores de 0 en las variables predictoras
+
+```{r}
+# Filtrar datos para no tener valores de 0 en las variables predictoras
+diabetes_filt <- diabetes %>%
+  filter(Glucose != 0 & Insulin != 0 & BMI != 0)
+```
+
+### Crear un modelo de regresión logística
+
+```{r}
+# Crear un modelo de regresión logística
+modelo <- glm(Outcome ~ Glucose + BMI + Insulin, 
+              data = diabetes_filt, family = binomial)
+summary(modelo)
+```
+
+### Calcular los odds ratios
+
+```{r}
+# Calcular los odds ratios con intervalos de confianza
+exp(cbind(OR = coef(modelo), confint(modelo)))
+```
+
+
+```{r}
+# Generate predicted probabilities
+diabetes_filt$predicted_prob <- predict(modelo, type = "response")
+
+# Plot the data with the logistic regression curve
+ggplot(diabetes_filt, aes(x = BMI, y = Outcome)) +
+  geom_point(alpha = 0.5) +  # Scatter plot of actual data
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = TRUE, color = "blue") +
+  labs(title = "Logistic Regression with Smooth Line",
+       x = "Glucose",
+       y = "Probability of Outcome") +
+  theme_minimal()
+```
+
+### Stepwise regression
+
+```{r}
+# Stepwise regression
+step_model <- step(modelo, direction = "both")
+summary(step_model)
+```
+
+
+
+
+
+
+

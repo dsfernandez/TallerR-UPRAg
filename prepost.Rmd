@@ -1,0 +1,1035 @@
+---
+title: "Pre-Post Pruebas"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Análisis de pre- y post-prueba
+
+
+### ITEM 1. ¿Qué es R Studio y para qué se utiliza?
+
+#### Pre-prueba
+
+**Clasificación y frecuencias:**. 
+
+1. Una plataforma para análisis de datos y programación en R  
+   - Frecuencia: **15**
+   
+2. Una plataforma para análisis de datos y programación en Python  
+   - Frecuencia: **4**
+   
+3. Un editor de texto básico para códigos  
+   - Frecuencia: **2**
+
+#### Post-prueba
+
+Aquí tienes la clasificación de las categorías y las frecuencias calculadas:
+
+**Clasificación y frecuencias:**. 
+
+1. Una plataforma para análisis de datos y programación en R  
+   - Frecuencia: **14**
+
+2. Una plataforma para análisis de datos y programación en Python  
+   - Frecuencia: **4**
+
+3. Un editor de texto básico para códigos  
+   - Frecuencia: **5**
+
+4. Una herramienta para diseño gráfico  
+   - Frecuencia: **3**
+
+**Explicación del cálculo:**
+- Cuando una línea contiene varias categorías, cada una se cuenta de forma independiente.
+- Se han desglosado todas las categorías mencionadas en cada línea y luego sumado las ocurrencias por categoría.
+
+**TABLA 1.**. Frecuencia de las respuestas a la pregunta *"¿Qué es R Studio y para qué se utiliza?"*, en la pre-prueba y post-prueba.
+
+| Categoría | Pre-prueba | Post-prueba |
+|-----------|------------|-------------|
+| R         | 15 (71)         | 14 (54)         |
+| Python    | 4 (19)         | 4 (15)          |
+| Editor    | 2 (10)         | 5 (19)          |
+| Gráfico   | 0 (0)        | 3 (12)          |
+
+---
+
+### ITEM 2. Describe dos de los componentes principales de la interfaz de R Studio y su función.
+
+#### Pre-prueba
+
+**Clasificación de las respuestas**:
+
+Todas las respuestas son **insuficientes** y no cumplen con los criterios necesarios para evaluar el conocimiento sobre los componentes principales de la interfaz de R Studio y sus funciones.
+
+#### Post-prueba
+
+**Clasificación de las respuestas**:
+
+-  **Buenas**: 3 respuestas
+-  **Aceptables**: 4 respuestas. 
+-  **Parcialmente aceptables**: 5 respuestas.
+-  **Insuficientes**: 5 respuestas.  
+
+**Explicación del cálculo:**
+- Cuando una línea contiene varias categorías, cada una se cuenta de forma independiente.
+
+**TABLA 2.**. Clasificación de las respuestas a la pregunta *"Describe dos de los componentes principales de la interfaz de R Studio y su función"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Buenas              | 0 (0)         | 3 (14)          |
+| Aceptables          | 0 (0)         | 4 (19)          |
+| Parcialmente aceptables | 0 (0)        | 5 (24)          |
+| Insuficientes       | 4 (20)        | 5 (24)          |
+| No respondió         | 16 (80)        | 4 (19)         |
+
+---
+
+### ITEM 3. Menciona dos tipos de datos que se pueden manejar en R.
+
+#### Criterios de evaluación:
+1. **Precisión**: Se espera que las respuestas mencionen tipos de datos reconocidos en R, como:
+   - **Numéricos** (numeric, integer)
+   - **Caracteres** (character)
+   - **Lógicos** (logical)
+   - **Factores** (factor)
+   - **Datos complejos** (complex)
+   - **Fechas y tiempos** (Date, POSIXct, POSIXlt)
+2. **Relevancia**: Las respuestas deben estar relacionadas con los tipos de datos en R, no con el uso de R.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas**:  
+   - Ninguna respuesta cumple completamente con los criterios esperados.
+
+- **Parcialmente aceptables**:  
+   - "Gráficas, datos numéricos" (1/2 correcta).
+
+- **Insuficientes**:  
+   - "graficas"
+   - "estadisticos"
+   - (Vacío)
+   - "No tengo idea"
+   - "ni idea"
+   - "No se"
+   - "Estadisticos"
+   - "cuantitativos, descriptivos"
+   - "N/A"
+
+---
+
+**Conclusión:**
+La mayoría de las respuestas son **insuficientes**. Solo una respuesta es **parcialmente aceptable**, al mencionar "datos numéricos". 
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas**: 6 respuestas  
+  - "Caracteres y variables numericas."
+  - "Caracteres y numeros."
+  - "caracteres y datos numericos."
+  - "categóricos y numéricos."
+  - "numericos, categoricos."
+  - "Datos categoricos y datos numericos."
+
+- **Parcialmente aceptables**:  6 respuestas
+  - "Datos numericos."
+  - "Variables numericas y datos estadisticos."
+  - "Datos numericos y cualitativos."
+  - "numéricos, variables cualitativas."
+  - "Vectores y data frames."
+  - "Se pueden manejar vectores y data.frame."
+
+- **Insuficientes**: 8 respuestas
+  - "."
+  - "Descriptivos."
+  - "Se trabajan datos estadisticos y diferentes variables."
+  - "read.csv() , mean()."
+  - "Regresion Lineal & Coeficientes correlacional."
+  - "Estadisticos y variables."
+  - "csv y xls (Excel)."
+  - "excel y word."
+
+**Conclusión:**
+Las respuestas **buenas** mencionan dos tipos de datos válidos en R, como "numéricos", "caracteres" y "categóricos". Las respuestas **parcialmente aceptables** incluyen al menos un tipo de dato correcto, pero son incompletas o confusas. Las respuestas **insuficientes** no abordan correctamente la pregunta o mencionan conceptos trabajados pero no específicos para la pregunta.
+
+**TABLA 3.**. Clasificación de las respuestas a la pregunta *"Menciona dos tipos de datos que se pueden manejar en R"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Buenas              | 0 (0)         | 6 (30)          |
+| Parcialmente aceptables | 1 (5)       | 6 (30)          |
+| Insuficientes       | 9 (45)         | 8 (40)          |
+| No respondió         | 10 (50)        | 0 (0)         |
+
+
+
+---
+
+### ITEM 4. ¿Qué comando usarías para verificar el tipo o estructura de dato de un objeto en R?
+
+#### Criterios de evaluación:
+
+1. **Comandos válidos en R para verificar el tipo o estructura de un objeto:**
+   - **`typeof()`**: Devuelve el tipo interno del objeto (e.g., "integer", "double", "character").
+   - **`class()`**: Devuelve la clase del objeto (e.g., "data.frame", "matrix", "numeric").
+   - **`str()`**: Muestra la estructura del objeto de manera compacta.
+   - **`mode()`** (menos común): Devuelve el modo del objeto (e.g., "numeric", "character").
+   - **`attributes()`**: Devuelve los atributos del objeto, si los tiene.
+
+2. **Comandos incorrectos o inexistentes:**  
+   - Comandos como `type()`, `object_type()` no existen en R y son incorrectos.
+
+Respuestas que incluyan comandos válidos serán evaluadas como buenas. Respuestas que solo incluyan comandos incorrectos serán consideradas insuficientes. Respuestas que mezclen válidos e inválidos serán parcialmente aceptables.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (comandos válidos): 3 respuestas 
+  - `typeof()`  
+  - `class()`  
+
+- **Parcialmente aceptables** (mezcla de válidos e inválidos): 2 respuestas 
+  - `class(), object_type()`  
+
+- **Insuficientes** (comandos incorrectos):  14 respuestas
+  - `object_type()`  
+  - `type()`  
+  - `type(), object_type()`  
+
+**Conclusión:**
+Las respuestas **buenas** incluyen comandos válidos como `typeof()` y `class()`. Las respuestas **parcialmente aceptables** combinan comandos válidos e inválidos, mientras que las respuestas **insuficientes** solo contienen comandos incorrectos.
+
+Se observa que la mayoría de las respuestas son incorrectas, lo que sugiere una confusión general sobre los comandos válidos en R para verificar tipos o estructuras de datos.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (comandos válidos):  
+  - `class()` (12 respuestas).
+
+- **Parcialmente aceptables** (mezcla de válidos e inválidos):  
+  - `type(), class()` (1 respuesta).  
+  - `class(), object_type()` (1 respuesta).
+
+- **Insuficientes** (comandos incorrectos):  
+  - `type()` (6 respuestas).  
+
+**Conclusión:**
+La mayoría de las respuestas son **buenas**, ya que mencionan el comando válido `class()`. Sin embargo, hay confusión con el uso de comandos inexistentes como `type()` y `object_type()`.  
+
+Se recomienda reforzar el conocimiento sobre los comandos válidos en R, como `typeof()`, `class()` y `str()`, para evitar confusiones con comandos inexistentes.
+
+**TABLA 4.**. Clasificación de las respuestas a la pregunta *"¿Qué comando usarías para verificar el tipo o estructura de dato de un objeto en R?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Buenas              | 3 (15)         | 12 (60)         |
+| Parcialmente aceptables | 2 (10)       | 2 (10)          |
+| Insuficientes       | 14 (70)        | 6 (30)          |
+| No respondió         | 1 (5)         | 0 (0)          |
+
+---
+
+### ITEM 5. ¿Qué comando utilizarías para cargar un archivo CSV en R?
+
+#### Criterios de evaluación:
+
+1. **Comandos válidos en R para cargar un archivo CSV:**
+   - **`read.csv()`**: Es el comando más común y estándar en R para leer archivos CSV.
+   - **`read_csv()`** (del paquete `readr`): Es una alternativa moderna y más rápida, aunque requiere cargar el paquete `tidyverse` o `readr`.
+
+2. **Comandos incorrectos o inexistentes:**
+   - **`load.csv()`**, **`import.csv()`**, **`read_file()`**: No son comandos válidos en R para cargar CSVs.
+
+Respuestas que incluyan comandos válidos serán evaluadas como **buenas**. Respuestas que mezclen comandos válidos e inválidos serán **parcialmente aceptables**. Respuestas que solo incluyan comandos incorrectos serán **insuficientes**.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (comandos válidos):  2 respuestas
+  - `read.csv()` (2 respuestas).
+
+- **Parcialmente aceptables**:  0 respuestas.
+  - Ninguna.
+
+- **Insuficientes** (comandos incorrectos):  17 respuestas.
+  - `load.csv()` (11 respuestas).  
+  - `import.csv()` (5 respuestas).  
+  - `import.csv(), load.csv()` (2 respuestas).  
+  - `import.csv(), read_file()` (1 respuesta).  
+
+**Conclusión:**
+La mayoría de las respuestas son **insuficientes**, ya que mencionan comandos inexistentes como `load.csv()` y `import.csv()`. Solo dos respuestas son **buenas**, indicando el uso correcto de `read.csv()`.
+
+Se recomienda reforzar el conocimiento sobre los comandos estándar en R para cargar archivos, especialmente `read.csv()` y, si se trabaja con `tidyverse`, `read_csv()`.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (comandos válidos): 19 respuestas 
+  - `read.csv()` (19 respuestas).
+
+- **Parcialmente aceptables**:  1 respuesta
+  - `read.csv(), read_xlxs` (1 respuesta).
+
+- **Insuficientes** (comandos incorrectos): 0 respuestas.
+  - Ninguna.
+
+**Conclusión:**
+La mayoría de las respuestas son **buenas**, ya que mencionan correctamente el uso de `read.csv()`. Solo una respuesta es **parcialmente aceptable** debido a la inclusión de un comando incorrecto (`read_xlxs`), que no existe en R.
+
+Se puede concluir que los participantes tienen un buen entendimiento del comando estándar para cargar archivos CSV en R. Sin embargo, sería útil reforzar la diferencia entre cargar archivos CSV (`read.csv()`) y otros formatos como Excel (`read_xlsx()` del paquete `readxl`).
+
+**TABLA 5.**. Clasificación de las respuestas a la pregunta *"¿Qué comando utilizarías para cargar un archivo CSV en R?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Buenas              | 2 (11)         | 19 (95)         |
+| Parcialmente aceptables | 0 (0)       | 1 (5)          |
+| Insuficientes       | 17 (89)        | 0 (0)          |
+
+---
+
+### ITEM 6. ¿Cuál es el propósito de las estadísticas descriptivas?
+
+#### Criterios de evaluación:
+
+1. **Propósito principal de las estadísticas descriptivas:**
+   - **Resumir y describir datos**: Este es el propósito esencial de las estadísticas descriptivas. Incluye calcular medidas como la media, mediana, moda, desviación estándar, etc., y presentar datos de manera comprensible.
+   - **Representar datos gráficamente**: Aunque no es el propósito principal, a menudo se utilizan gráficos básicos (como histogramas, diagramas de caja, etc.) para complementar la descripción de los datos.
+
+2. **Propósitos incorrectos o no relacionados:**
+   - **Probar hipótesis**: Esto pertenece a las estadísticas inferenciales, no a las descriptivas.
+   - **Obtener información para poder eliminar datos**: No es un propósito de las estadísticas descriptivas.
+   - **Crear gráficos avanzados**: Aunque los gráficos pueden ser parte de las estadísticas descriptivas, "gráficos avanzados" no es un propósito específico.
+
+3. **Clasificación de respuestas:**
+   - **Buenas**: Respuestas que mencionan únicamente "Resumir y describir datos".
+   - **Parcialmente aceptables**: Respuestas que combinan "Resumir y describir datos" con elementos secundarios no esenciales (e.g., "Crear gráficos avanzados").
+   - **Insuficientes**: Respuestas que no mencionan "Resumir y describir datos" o incluyen elementos incorrectos como "Probar hipótesis" o "Eliminar datos".
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (descripciones válidas): 7 respuestas.
+  - "Resumir y describir datos" (7 respuestas).
+
+- **Parcialmente aceptables**: 7 respuestas
+  - "Resumir y describir datos, Obtener información para poder eliminar datos" (1 respuesta).  
+  - "Probar hipótesis, Resumir y describir datos" (2 respuestas).  
+  - "Resumir y describir datos, Crear gráficos avanzados" (3 respuestas).  
+  - "Probar hipótesis, Resumir y describir datos, Obtener información para poder eliminar datos" (1 respuesta).
+
+- **Insuficientes** (descripciones incorrectas): 5 respuestas 
+  - "Crear gráficos avanzados" (1 respuesta).  
+  - "Probar hipótesis" (1 respuesta).  
+  - "Probar hipótesis, Obtener información para poder eliminar datos" (1 respuesta).  
+  - "Probar hipótesis, Resumir y describir datos, Crear gráficos avanzados, Obtener información para poder eliminar datos" (2 respuestas).
+
+La mayoría de las respuestas reconocen correctamente que el propósito principal de las estadísticas descriptivas es "Resumir y describir datos". Sin embargo, algunas respuestas incluyen elementos incorrectos como "Probar hipótesis" o "Crear gráficos avanzados", que no son propósitos de las estadísticas descriptivas.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Buenas** (respuestas correctas):6 respuestas.
+  - "Resumir y describir datos" (6 respuestas).
+
+- **Parcialmente aceptables**:  5 respuestas.
+  - "Probar hipótesis, Resumir y describir datos, Crear gráficos avanzados" (1 respuesta).  
+  - "Resumir y describir datos, Obtener información para poder eliminar datos" (1 respuesta).  
+  - "Probar hipótesis, Resumir y describir datos" (3 respuestas).
+
+- **Insuficientes** (respuestas incorrectas): 9 respuestas.     
+  - "Probar hipótesis, Crear gráficos avanzados" (1 respuesta).  
+  - "Probar hipótesis" (5 respuestas).  
+  - "Crear gráficos avanzados" (1 respuesta).  
+  - "Probar hipótesis, Resumir y describir datos, Crear gráficos avanzados, Obtener información para poder eliminar datos" (2 respuestas).  
+  - "Obtener información para poder eliminar datos" (1 respuesta).  
+  - "Probar hipótesis, Crear gráficos avanzados, Obtener información para poder eliminar datos" (1 respuesta).
+
+La mayoría de las respuestas incorrectas incluyen conceptos ajenos a las estadísticas descriptivas, como "Probar hipótesis" o "Obtener información para poder eliminar datos". Esto indica una confusión entre las estadísticas descriptivas e inferenciales. Es necesario reforzar el conocimiento sobre el propósito específico de las estadísticas descriptivas.
+
+**TABLA 6.**. Clasificación de las respuestas a la pregunta *"¿Cuál es el propósito de las estadísticas descriptivas?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Buenas              | 7 (35)         | 6 (30)          |
+| Parcialmente aceptables | 7 (35)       | 5 (25)          |
+| Insuficientes       | 5 (25)         | 9 (45)          |
+| No respondió         | 1 (5)         | 0 (0)          |
+
+---
+
+### ITEM 7. ¿Qué función de R usarías para calcular el promedio de un conjunto de datos?
+
+#### Criterios de evaluación:
+
+1. **Respuesta correcta:**
+   - **`mean()`**: Es la función de R que se utiliza para calcular el promedio (media aritmética) de un conjunto de datos.
+
+2. **Respuestas incorrectas:**
+   - **`average()`**: No es una función válida en R para calcular el promedio. Aunque "average" es el término en inglés para promedio, R no tiene una función llamada `average()`.
+   - **`median()`**: Aunque es una función válida en R, calcula la mediana, no el promedio.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:4 respuestas.
+  - `mean()` (4 respuestas).
+
+- **Incorrectas**: 16 respuestas.
+  - `average()` (14 respuestas).  
+  - `median()` (2 respuestas).
+
+La mayoría de las respuestas incorrectas indican una confusión común entre el término "average" (promedio, usado en Excel) y su implementación en R. Esto sugiere que es necesario reforzar el conocimiento práctico sobre las funciones específicas del lenguaje R.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**: 20 respuestas.
+  - `mean()` (20 respuestas).
+
+- **Incorrectas**: 0 respuestas. 
+  - Ninguna.
+
+Todas las respuestas son correctas, lo que demuestra un dominio completo de la destreza.
+
+**TABLA 7.**. Clasificación de las respuestas a la pregunta *"¿Qué función de R usarías para calcular el promedio de un conjunto de datos?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 4 (20)         | 20 (100)         |
+| Incorrectas         | 16 (80)        | 0 (0)          |
+
+---
+
+### ITEM 8. ¿Qué tipo de gráfico sería más adecuado para representar la relación entre dos variables numéricas?
+
+#### Criterios de evaluación:
+
+1. **Respuesta correcta:**
+   - **Gráfico de Dispersión ("Scatterplot")**: Es el tipo de gráfico más adecuado para representar la relación entre dos variables numéricas. Permite observar patrones, correlaciones o tendencias entre las variables.
+
+2. **Respuestas incorrectas:**
+   - **Diagrama de Barras**: Se utiliza para representar frecuencias o comparar categorías, no para mostrar relaciones entre variables numéricas.
+   - **Histograma**: Se utiliza para mostrar la distribución de una sola variable numérica, no para analizar relaciones entre dos variables.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  10 respuestas.
+  - "Gráfico de Dispersión ('Scatterplot')" (10 respuestas).
+
+- **Incorrectas**:  9 respuestas.
+  - "Diagrama de Barras" (8 respuestas).  
+  - "Histograma" (1 respuesta).
+
+Aunque la mayoría respondió correctamente con "Gráfico de Dispersión ('Scatterplot')", un porcentaje significativo de respuestas incorrectas sugiere que algunos participantes confunden los propósitos de los diferentes tipos de gráficos, especialmente entre "Diagrama de Barras" y "Scatterplot". Esto podría ser una oportunidad para reforzar conceptos básicos de visualización de datos.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  5 respuestas.
+  - "Gráfico de Dispersión ('Scatterplot')" (5 respuestas).
+
+- **Incorrectas**:  15 respuestas.
+  - "Histograma" (11 respuestas).  
+  - "Diagrama de Barras" (4 respuestas).
+
+La mayoría de las respuestas son incorrectas. Esto sugiere una confusión significativa en la identificación del gráfico adecuado para analizar relaciones entre dos variables numéricas. Sería útil reforzar los conceptos básicos de visualización de datos, especialmente el propósito de cada tipo de gráfico.
+
+**TABLA 8.**. Clasificación de las respuestas a la pregunta *"¿Qué tipo de gráfico sería más adecuado para representar la relación entre dos variables numéricas?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 10 (50)        | 5 (25)          |
+| Incorrectas         | 9 (45)         | 15 (75)         |
+| No respondió         | 1 (5)         | 0 (0)          |
+
+---
+
+### ITEM 9. ¿Cuántas variables numéricas se necesitan para crear un histograma?
+
+#### Criterios de evaluación:
+
+1. **Respuesta correcta:**
+     - Un histograma requiere **solo una variable numérica** para analizar su distribución (frecuencia de valores en intervalos).
+
+2. **Respuestas incorrectas:**
+     - **2, 3 o 4 variables**: Estas respuestas son incorrectas, ya que un histograma no analiza múltiples variables numéricas a la vez. Si se tienen múltiples variables, se necesitarían histogramas separados para cada una.
+
+#### Pre-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  0 respuestas.
+  - Ninguna (0 respuestas).
+
+- **Incorrectas**:  19 respuestas.
+  - "2" (9 respuestas).  
+  - "3" (5 respuestas).  
+  - "4" (6 respuestas).
+
+Ninguna de las respuestas fue correcta. Esto indica un malentendido generalizado sobre el concepto de histogramas y la cantidad de variables que requieren. Sería útil aclarar que un histograma analiza la distribución de **una sola variable numérica** y no requiere múltiples variables.
+
+#### Post-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  8 respuestas.
+  - "1" (8 respuestas).
+
+- **Incorrectas**:  12 respuestas.
+  - "2" (11 respuestas).  
+  - "3" (1 respuesta).
+
+Aunque una proporción significativa de participantes respondió correctamente (40%), la mayoría (60%) eligió respuestas incorrectas, principalmente "2". Esto sugiere una confusión común sobre el propósito de un histograma y la cantidad de variables que requiere. Sería útil reforzar la explicación de que un histograma analiza la distribución de **una sola variable numérica**.
+
+**TABLA 9.**. Clasificación de las respuestas a la pregunta *"¿Cuántas variables numéricas se necesitan para crear un histograma?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 0 (0)         | 8 (40)          |
+| Incorrectas         | 19 (95)        | 12 (60)         |
+| No respondió         | 1 (5)         | 0 (0)          |
+
+---
+
+### ITEM 10. ¿Qué función usarías para crear un gráfico de barras en R?
+
+#### Criterios de evaluación:
+
+1. **Respuesta correcta:**
+   - **`barplot()`**:  
+     - Es la función en R diseñada específicamente para crear gráficos de barras.
+
+2. **Respuestas incorrectas:**
+   - **`hist()`**: Esta función se usa para crear histogramas, que muestran la distribución de una variable numérica.
+   - **`boxplot()`**: Esta función genera diagramas de caja (boxplots), útiles para visualizar la distribución y los valores atípicos de una variable numérica.
+   - **`scatterplot()`**: Esta función (o similar, como `plot()`) se utiliza para gráficos de dispersión (scatterplots), que muestran la relación entre dos variables numéricas.
+   - **Combinaciones incorrectas**: Como `barplot(), hist()` indican confusión sobre el propósito de cada función.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**: 11 respuestas. 
+  - "`barplot()`" (11 respuestas).
+
+- **Incorrectas**:  9 respuestas.
+  - "`hist()`" (2 respuestas).  
+  - "`barplot(), hist()`" (1 respuesta).  
+  - "`boxplot()`" (3 respuestas).  
+  - "`scatterplot()`" (3 respuestas).
+
+Aunque la mayoría de las respuestas fueron correctas, ocho participantes mostró confusión, principalmente al seleccionar funciones como `hist()` o `boxplot()`. Esto indica que algunos participantes no comprenden completamente las diferencias entre los tipos de gráficos y las funciones asociadas en R. Sería útil reforzar el propósito de cada función en el contexto de visualización de datos.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  
+  - "`barplot()`" (15 respuestas).
+
+- **Incorrectas**:  
+  - "`hist()`" (2 respuestas).  
+  - "`barplot(), hist()`" (2 respuestas).  
+  - "`boxplot()`" (1 respuesta).
+
+La mayoría de las respuestas fueron correctas, indicando un buen entendimiento general del uso de la función `barplot()` para gráficos de barras en R. Sin embargo, algunas de las respuestas las respuestas mostraron confusión, principalmente al incluir funciones como `hist()` o `boxplot()`. Esto sugiere que, aunque la mayoría comprende el propósito de `barplot()`, un pequeño grupo podría beneficiarse de una explicación más clara sobre las diferencias entre estas funciones y los gráficos que generan.
+
+**TABLA 10.**. Clasificación de las respuestas a la pregunta *"¿Qué función usarías para crear un gráfico de barras en R?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 11 (58)        | 15 (75)         |
+| Incorrectas         | 8 (42)         | 5 (25)          |
+
+---
+
+### ITEM 11. Escribe el código más sencillo para crear un gráfico de dispersión que muestre la relación entre las variables X e Y de un data frame llamado datos.
+
+#### Criterios de evaluación:
+
+1. **Respuesta correcta:**  
+   - En R, el código más sencillo para crear un gráfico de dispersión es:  
+     ```R
+     plot(datos$X, datos$Y)
+     ```  
+     O también, utilizando fórmulas:
+     ```R
+     plot(Y ~ X, data = datos)
+     ```
+
+2. **Respuestas parcialmente correctas:**  
+   - Respuestas que mencionan la intención de crear un gráfico de dispersión, pero no especifican el código correcto o utilizan terminología incorrecta como `scatterplot()` (que no es una función base en R, pero podría ser válida en otros contextos si se usa una librería específica).
+
+3. **Respuestas incorrectas:**  
+   - Respuestas que no tienen relación con la creación de un gráfico de dispersión en R, como fórmulas matemáticas o respuestas que indican desconocimiento.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  0 respuestas.
+  - Ninguna.
+
+- **Parcialmente correctas**:  1 respuesta.
+  - "scatterplot(x,y)" (1 respuesta).
+
+- **Incorrectas**:  4 respuestas.
+  - "No sé" / "ni idea" / "N/A" (3 respuestas).  
+  - "y = mx + b" (1 respuesta).
+
+Ninguno de los participantes supo responder correctamente a la pregunta, y solo una respuesta mostró un intento parcial de describir un gráfico de dispersión. Esto indica que los participantes podrían necesitar una introducción básica sobre cómo crear gráficos de dispersión en R, enfatizando el uso de la función `plot()` y la sintaxis adecuada para referirse a columnas de un data frame.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas**:  3 respuestas.
+  - "scatter_gluco_insulina <- ggplot(diabetes3, aes(x = glucosa, y = insulina)) + geom_point(color = 'darkred') + labs(x = 'Glucosa', y = 'Insulina') scatter_gluco_insulina".  
+  - "scatter_edad_glucoinsulina <- ggplot(diabetes3, aes(x = edad_diagnostico, y = indice_gi)) + geom_point(color = 'deeppink3') + labs(x = 'Edad', y = 'Indice glucosa/insulina') scatter_edad_glucoinsulina".
+  - "scatter_form <- ggplot(datos, aes(x = pregunta y = respuesta)) + geom_point(color = 'blue') + labs(x = 'pregunta', y = 'respuesta') scatter_form".
+
+- **Parcialmente correctas**: 1 respuestas. 
+  - "library(ggplot2)".  
+
+
+- **Incorrectas**:  13 respuestas.
+  - Todas las demás respuestas.
+
+La mayoría de las respuestas fueron incorrectas (74%), lo que indica confusión sobre la sintaxis y las funciones para crear gráficos de dispersión en R. Aunque algunas respuestas correctas utilizaron `ggplot2`, muchas otras fallaron en presentar un código válido o completo. Esto sugiere la necesidad de reforzar el conocimiento básico sobre el uso de `ggplot2` y la función base `plot()` en R.
+
+**TABLA 11.**. Clasificación de las respuestas a la pregunta *"Escribe el código más sencillo para crear un gráfico de dispersión que muestre la relación entre las variables X e Y de un data frame llamado datos"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 0 (0)         | 3 (15)          |
+| Parcialmente correctas | 1 (5)       | 1 (5)          |
+| Incorrectas         | 4 (20)         | 13 (65)         |
+| No respondió         | 15 (75)        | 3 (15)          |
+
+---
+
+### ITEM 12. ¿Qué es una prueba de hipótesis estadística?
+
+#### Criterios de evaluación:
+
+1. **Respuestas correctas:**  
+   - Una prueba de hipótesis estadística es un procedimiento para evaluar una suposición (hipótesis) sobre una población, basada en datos de una muestra. Su objetivo es determinar si hay suficiente evidencia estadística para rechazar la hipótesis nula ($H_0$) en favor de la hipótesis alternativa ($H_a$).  
+     Ejemplo de respuesta correcta:  
+     - "Un procedimiento estadístico para evaluar una hipótesis sobre una población con base en datos muestrales."
+
+2. **Respuestas parcialmente correctas:**  
+   - Respuestas que capturan parcialmente el objetivo de una prueba de hipótesis, como "evaluar predicciones estadísticas", pero carecen de precisión o detalle.
+
+3. **Respuestas incorrectas:**  
+   - Respuestas que no describen correctamente el objetivo de una prueba de hipótesis o que se desvían completamente del tema.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 0 respuestas.
+  - Ninguna.
+
+- **Parcialmente correctas:** 18 respuestas.
+1. "Un método para evaluar predicciones estadísticas" (15 respuestas).  
+2. "Un método para evaluar predicciones estadísticas, Un método para evaluar la calidad de los datos" (2 respuestas).  
+3. "Un método para evaluar predicciones estadísticas, Un procedimiento para separar datos" (1 respuesta).
+
+- **Incorrectas:** 2 respuestas.
+1. "Un método para evaluar la calidad de los datos" (1 respuesta).  
+2. "Una técnica para visualizar datos" (1 respuesta).
+
+**Conclusión:**
+
+La mayoría de las respuestas fueron parcialmente correctas (90%), indicando que los participantes tienen una idea básica de que las pruebas de hipótesis están relacionadas con la evaluación de predicciones estadísticas, pero carecen de precisión y profundidad. Esto sugiere la necesidad de aclarar el concepto, enfatizando que las pruebas de hipótesis son procedimientos formales para evaluar suposiciones sobre poblaciones mediante datos muestrales.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 0 respuestas.
+  - Ninguna.
+
+- **Parcialmente correctas:** 17 respuestas.
+1. "Un método para evaluar predicciones estadísticas, Un método para evaluar la calidad de los datos" (4 respuestas).  
+2. "Un método para evaluar predicciones estadísticas" (13 respuestas).
+
+- **Incorrectas:** 3 respuestas.
+1. "Una técnica para visualizar datos, Un método para evaluar predicciones estadísticas" (1 respuesta).  
+2. "Una técnica para visualizar datos, Un método para evaluar predicciones estadísticas, Un procedimiento para separar datos, Un método para evaluar la calidad de los datos" (1 respuesta).
+
+**Conclusión:**
+
+La mayoría de las respuestas (85%) fueron parcialmente correctas, indicando que los participantes tienen una idea básica de que las pruebas de hipótesis están relacionadas con la evaluación de predicciones estadísticas, pero carecen de precisión y profundidad. Las respuestas incorrectas (15%) incluyeron conceptos irrelevantes o erróneos, como la visualización de datos o la separación de datos. Esto sugiere la necesidad de reforzar el conocimiento sobre el propósito y la estructura de las pruebas de hipótesis estadísticas.
+
+**TABLA 12.**. Clasificación de las respuestas a la pregunta *"¿Qué es una prueba de hipótesis estadística?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 0 (0)         | 0 (0)          |
+| Parcialmente correctas | 18 (90)       | 17 (85)         |
+| Incorrectas         | 2 (10)         | 3 (15)          |
+
+---
+
+### ITEM 13. Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento: Comparación de 3 o más medias.
+
+#### Criterios de evaluación:
+
+1. **Respuestas correctas:**  
+   La prueba estadística adecuada para comparar 3 o más medias es el **ANOVA (Análisis de Varianza)**. Esta prueba se utiliza para determinar si existen diferencias significativas entre las medias de tres o más grupos independientes.
+
+2. **Respuestas incorrectas:**  
+   - **Prueba t:** Es incorrecta porque la prueba t solo compara las medias de **dos grupos**.  
+   - **Prueba chi-cuadrado:** Es incorrecta porque esta prueba se utiliza para analizar variables categóricas, no para comparar medias.  
+   - **Análisis de regresión:** Es incorrecto porque esta técnica se utiliza para analizar relaciones entre variables dependientes y una o más variables independientes, no para comparar medias.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 6 respuestas.
+  - "ANOVA" (6 respuestas).
+
+- **Incorrectas:** 12 respuestas.
+
+1. "Prueba t" (6 respuestas).  
+2. "Prueba chi-cuadrado" (2 respuestas).  
+3. "Análisis de regresión" (4 respuestas).
+
+**Conclusión:**
+
+El **33.3%** de las respuestas identificaron correctamente que el **ANOVA** es la prueba adecuada para comparar 3 o más medias. Sin embargo, el **66.7%** de las respuestas fueron incorrectas, lo que evidencia una confusión común entre el uso de pruebas como la prueba t, chi-cuadrado y análisis de regresión. Esto sugiere la necesidad de aclarar las aplicaciones específicas de cada prueba estadística, especialmente en el contexto de comparación de medias.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 18 respuestas.
+- "ANOVA" (18 respuestas).
+
+- **Incorrectas:** 2 respuestas.
+1. "Prueba chi-cuadrado, análisis de regresión" (1 respuesta).  
+2. "Prueba chi-cuadrado" (1 respuesta).
+
+**Conclusión:**
+
+El **89.5%** de las respuestas identificaron correctamente que el **ANOVA** es la prueba adecuada para comparar 3 o más medias. Solo el **10.5%** de las respuestas fueron incorrectas, lo que indica una buena comprensión general del tema. Sin embargo, las respuestas incorrectas sugieren que algunos participantes confunden las aplicaciones de la prueba chi-cuadrado y el análisis de regresión, lo que podría resolverse con una explicación clara de los propósitos de cada prueba estadística.
+
+**TABLA 13.**. Clasificación de las respuestas a la pregunta *"Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento: Comparación de 3 o más medias"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 6 (30)         | 18 (90)         |
+| Incorrectas         | 12 (60)        | 2 (10)          |
+| No respondió         | 2 (10)         | 0 (0)          |
+
+---
+
+### ITEM 14. Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de ¿Existe una relación causa-efecto?
+
+#### Criterios de evaluación:
+
+1. **Respuestas correctas:**  
+   La prueba estadística adecuada para determinar una relación causa-efecto es el **análisis de regresión**.  
+   - El análisis de regresión evalúa cómo una variable dependiente cambia en respuesta a una o más variables independientes, lo que permite inferir relaciones causales (aunque no siempre implica causalidad directa, ya que depende del diseño experimental).  
+
+2. **Respuestas incorrectas:**  
+   - **Prueba chi-cuadrado:** Es incorrecta porque esta prueba evalúa asociaciones entre variables categóricas, no relaciones causa-efecto.  
+   - **Prueba t:** Es incorrecta porque compara medias entre dos grupos, pero no evalúa relaciones causa-efecto.  
+   - **ANOVA:** Es incorrecta porque se utiliza para comparar medias entre tres o más grupos, pero no evalúa relaciones causa-efecto directamente.
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 5 respuestas.
+  - "Análisis de regresión" (5 respuestas).
+
+- **Incorrectas:** 13 respuestas.
+1. "Prueba chi-cuadrado" (6 respuestas).  
+2. "Prueba t" (4 respuestas).  
+3. "ANOVA" (3 respuestas).
+
+**Conclusión:**
+
+Solo cinco de las respuestas identificaron correctamente que el **análisis de regresión** es la prueba adecuada para evaluar relaciones causa-efecto. La mayoría de las respuestas fueron incorrectas, lo que indica una confusión generalizada entre las aplicaciones de pruebas estadísticas como chi-cuadrado, t y ANOVA. Esto sugiere que sería útil reforzar la comprensión de los objetivos específicos de cada prueba estadística, especialmente en el contexto de relaciones causales.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 12 respuestas.
+  - "Análisis de regresión" (12 respuestas).
+
+- **Incorrectas:** 8 respuestas.
+1. "Prueba chi-cuadrado" (7 respuestas).  
+2. "Prueba t, análisis de regresión" (1 respuesta - parcialmente correcta, pero clasificada como incorrecta por incluir un error).
+
+**Conclusión:
+
+El **60%** de las respuestas identificaron correctamente que el **análisis de regresión** es la prueba adecuada para evaluar relaciones causa-efecto. Sin embargo, el **40%** de las respuestas fueron incorrectas, siendo la prueba chi-cuadrado el error más común. Esto refleja cierta confusión sobre las aplicaciones de esta prueba, especialmente en comparación con el análisis de regresión. Reforzar el entendimiento de las diferencias entre pruebas de asociación (chi-cuadrado) y análisis de relaciones (regresión) podría ser útil para mejorar la precisión en futuras respuestas.
+
+**TABLA 14.**. Clasificación de las respuestas a la pregunta *"Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de ¿Existe una relación causa-efecto?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 5 (25)         | 12 (60)         |
+| Incorrectas         | 13 (65)        | 8 (40)          |
+| No respondió         | 2 (10)         | 0 (0)          |
+
+---
+
+### ITEM 15. Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de: Comparación de dos medias
+
+#### Criterios de evaluación:
+
+1. **Respuestas correctas:**  
+   La prueba estadística adecuada para comparar dos medias es la **prueba t (t de Student)**.  
+   - Esta prueba evalúa si las medias de dos grupos son significativamente diferentes entre sí. Se utiliza en contextos como muestras independientes, muestras relacionadas o pares emparejados.
+
+2. **Respuestas incorrectas:**  
+   - **Análisis de regresión:** Es incorrecto porque esta técnica evalúa relaciones entre variables dependientes e independientes, pero no se utiliza para comparar dos medias.  
+   - **ANOVA:** Es incorrecto porque esta prueba compara tres o más medias, no dos.  
+   - **Prueba chi-cuadrado:** Es incorrecta porque evalúa asociaciones entre variables categóricas, no diferencias entre medias.
+
+#### Pre-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 5 respuestas.
+  - "Prueba t" (5 respuestas).
+
+- **Incorrectas:** 12 respuestas.
+1. "Análisis de regresión" (3 respuestas).  
+2. "ANOVA" (3 respuestas).  
+3. "Prueba chi-cuadrado" (6 respuestas).
+
+
+**Conclusión:**
+
+Cinco de las respuestas identificaron correctamente que la **prueba t** es la adecuada para comparar dos medias. La mayoría de las respuestas fueron incorrectas, siendo la prueba chi-cuadrado el error más frecuente (6 respuestas). Esto indica una confusión significativa sobre las aplicaciones de las pruebas estadísticas, especialmente entre pruebas de comparación de medias (prueba t, ANOVA) y pruebas de asociación (chi-cuadrado). Se recomienda reforzar el conocimiento de las pruebas estadísticas básicas y sus aplicaciones específicas.
+
+#### Post-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 13 respuestas.
+   - "Prueba t" (13 respuestas).
+
+- **Incorrectas:** 6 respuestas.
+1. "ANOVA" (2 respuestas).  
+2. "Prueba chi-cuadrado" (3 respuestas).  
+3. "Análisis de regresión" (1 respuesta).
+
+**Conclusión:**
+
+La mayoría de las respuestas identificaron correctamente que la **prueba t** es la adecuada para comparar dos medias. Sin embargo, el **27.8%** de las respuestas fueron incorrectas, siendo la prueba chi-cuadrado el error más frecuente (3 respuestas, 16.7%). Esto refleja un buen entendimiento general del uso de la prueba t, aunque persiste algo de confusión con las aplicaciones de otras pruebas estadísticas como ANOVA y chi-cuadrado. Se recomienda reforzar el conocimiento sobre las diferencias clave entre estas pruebas para reducir errores.
+
+**TABLA 15.**. Clasificación de las respuestas a la pregunta *"Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de: Comparación de dos medias"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 5 (25)         | 13 (65)         |
+| Incorrectas         | 12 (60)        | 6 (30)          |
+| No respondió         | 3 (15)         | 1 (5)          |
+
+---
+
+### ITEM 16. Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de: ¿Existe una asociación entre dos variables categóricas?
+
+#### Criterios de evaluación:
+
+1. **Respuestas correctas:**  
+   La prueba estadística adecuada para determinar si existe una asociación entre dos variables categóricas es la **prueba chi-cuadrado**.  
+   - Esta prueba evalúa si existe una relación significativa entre dos variables categóricas, comparando las frecuencias observadas con las frecuencias esperadas bajo la hipótesis nula.  
+
+2. **Respuestas incorrectas:**  
+   - **ANOVA:** Es incorrecto porque esta prueba compara medias entre tres o más grupos, y no evalúa asociaciones entre variables categóricas.  
+   - **Análisis de regresión:** Es incorrecto porque evalúa relaciones entre variables continuas (o una variable dependiente continua y variables independientes).  
+   - **Prueba t:** Es incorrecta porque compara medias entre dos grupos, pero no evalúa asociaciones entre variables categóricas.  
+
+#### Pre-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 4 respuestas.
+  - "Prueba chi-cuadrado" (4 respuestas).
+
+- **Incorrectas:** 13 respuestas.
+1. "ANOVA" (4 respuestas).  
+2. "Análisis de regresión" (4 respuestas).  
+3. "Prueba t" (4 respuestas).  
+4. "Prueba t, ANOVA" (1 respuesta).
+
+### **Conclusión:**
+
+Solo cuatro de las respuestas identificaron correctamente que la **prueba chi-cuadrado** es la adecuada para determinar si existe una asociación entre dos variables categóricas. La mayoría de las respuestas fueron incorrectas, siendo los errores más comunes **ANOVA**, **análisis de regresión** y **prueba t** (cada uno con 4 respuestas). Esto refleja una confusión significativa sobre las aplicaciones de pruebas estadísticas, especialmente en el contexto de variables categóricas. Se recomienda reforzar el conocimiento sobre las pruebas estadísticas específicas para variables categóricas, como la prueba chi-cuadrado.
+
+#### Post-prueba:
+
+#### Clasificación de las respuestas:
+
+- **Correctas:**  8 respuestas.
+   - "Prueba chi-cuadrado" (8 respuestas).
+
+- **Incorrectas:** 12 respuestas.
+1. "Análisis de regresión" (7 respuestas).  
+2. "ANOVA" (1 respuesta).  
+3. "Prueba t" (4 respuestas).
+
+### **Conclusión:**
+
+Ocho de las respuestas identificaron correctamente que la **prueba chi-cuadrado** es la adecuada para determinar si existe una asociación entre dos variables categóricas. Sin embargo, la mayoría de las respuestas fueron incorrectas, siendo el error más frecuente el uso del **análisis de regresión** (7 respuestas). Esto refleja una confusión moderada sobre las aplicaciones de las pruebas estadísticas en este contexto. Se recomienda reforzar el conocimiento sobre las pruebas estadísticas específicas para variables categóricas, como la prueba chi-cuadrado, y aclarar las diferencias con pruebas como la regresión, ANOVA y prueba t.
+
+**TABLA 16.**. Clasificación de las respuestas a la pregunta *"Seleccionar la prueba correspondiente al tipo de pregunta o planteamiento de: ¿Existe una asociación entre dos variables categóricas?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 4 (20)         | 8 (40)          |
+| Incorrectas         | 13 (65)        | 12 (60)         |
+| No respondió         | 3 (15)         | 0 (0)          |
+
+---
+
+### ITEM 17. ¿Qué es el valor p ('p-value')?
+
+#### Criterios de evaluación:
+
+No se incluyó una respuesta totalmente correcta; la respuesta aceptada como correcta fue: "La probabilidad de cometer un error", aunque no es una definición completa del valor p. 
+
+Una respuesta correcta sería: **Probabilidad de observar un resultado igual o más extremo que el obtenido en los datos, asumiendo que la hipótesis nula es verdadera.**
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 3 respuestas.
+   - "La probabilidad de cometer un error" (3 respuestas). 
+
+- **Incorrectas:** 17 respuestas.
+   - "La probabilidad de aceptar mi hipótesis" (11 respuestas).
+   - "La proporción de resultados positivos" (4 respuestas.
+   - "La proporción de casos negativos" (2 respuestas).
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 8 respuestas.
+  - "La probabilidad de cometer un error" (8 respuestas).  
+  
+- **Incorrectas:** 12 respuestas.
+   - "La probabilidad de aceptar mi hipótesis" (10 respuestas).
+   - "La proporción de resultados positivos" (2 respuestas).
+   
+**TABLA 17.** Clasificación de las respuestas a la pregunta *"¿Qué es el valor p ('p-value')?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 3 (15)         | 8 (40)          |
+| Incorrectas         | 17 (85)        | 12 (60)         |
+
+---
+
+### ITEM 18. ¿Qué pasos principales tomarías para desarrollar un proyecto de análisis de datos en R?
+
+#### Criterios de evaluación:
+
+Un flujo general para desarrollar un proyecto de análisis de datos en R incluye los siguientes pasos principales:
+
+1. **Definir el objetivo del análisis:**  
+   - Identificar las preguntas de investigación o los problemas que se quieren resolver.
+2. **Obtener y explorar los datos:**  
+   - Recolectar, importar y realizar una exploración inicial de los datos.
+3. **Preparar los datos:**  
+   - Limpiar, transformar y organizar los datos para el análisis.
+4. **Seleccionar las técnicas o métodos de análisis:**  
+   - Escoger las pruebas estadísticas, modelos o visualizaciones adecuados para el objetivo.
+5. **Realizar el análisis:**  
+   - Aplicar métodos estadísticos o modelos y generar resultados.
+6. **Interpretar y comunicar los resultados:**  
+   - Crear visualizaciones, reportes o conclusiones basadas en los hallazgos.
+
+
+#### Pre-prueba
+
+#### Clasificación de las respuestas:
+
+- **Correctas:** 1 respuesta.
+   -"Buena recolección de data y escoger adecuadamente la prueba según lo que se espera evaluar."** (1 respuesta).
+
+- **Aceptables:** 4 respuestas.
+1. **"Obtener los datos"** (1 respuesta).  
+2. **"Escoger las variables, medir las variables, establecer relación"** (1 respuesta).  
+3. **"Organizar los datos, identificar los datos y utilizar el método gráfico que más se ajuste a los datos."** (1 respuesta).  
+4. **"Organizar los datos antes de usar el programa"** (1 respuesta).
+
+- **Incorrectas:** 4 respuestas.
+1. **"No sé" / "Ni idea" / "N/A"** (3 respuestas).  
+2. **"No conozco sobre el tema"** (1 respuesta).
+
+**Conclusión:**
+
+El **12.5%** de las respuestas fueron correctas, mientras que un **50%** fueron aceptables, indicando que algunos participantes tienen una comprensión parcial del proceso de análisis de datos en R. Sin embargo, un **37.5%** no proporcionó respuestas útiles, lo que muestra una falta de conocimiento o confianza en el tema. Se recomienda reforzar los conceptos clave del flujo de trabajo en análisis de datos, enfatizando la importancia de cada paso, desde la obtención de datos hasta la interpretación de resultados.
+
+#### Post-prueba
+
+#### Clasificación de las respuestas:
+
+**Correctas:** 10 respuestas.
+- Respuestas completas y alineadas con el flujo general del análisis de datos:
+10 respuestas (55.5%). 
+
+**Aceptables:** 8 respuestas.
+- Respuestas parciales que mencionan algunos pasos pero carecen de detalles importantes:
+- 8 respuestas (44.5%). 
+
+**Incorrectas:**
+- En este caso, no hubo respuestas completamente incorrectas.
+
+**Conclusión:**
+
+La mayoría de las respuestas (55.5%) fueron correctas, mostrando un buen entendimiento del flujo general para desarrollar un proyecto de análisis de datos en R. Sin embargo, aún hay un 44.5% de respuestas que fueron aceptables pero incompletas, lo que sugiere que algunos participantes tienen un conocimiento parcial del tema. Se recomienda reforzar la importancia de cada paso del análisis, especialmente la preparación de datos y la interpretación de resultados.
+
+**TABLA 18.**. Clasificación de las respuestas a la pregunta *"¿Qué pasos principales tomarías para desarrollar un proyecto de análisis de datos en R?"*, en la pre-prueba y post-prueba.
+
+| Categoría           | Pre-prueba | Post-prueba |
+|---------------------|------------|-------------|
+| Correctas           | 1 (5)         | 10 (50)         |
+| Aceptables          | 4 (20)         | 8 (40)          |
+| Incorrectas         | 4 (20)         | 0 (0)          |
+| No respondió         | 11 (55)        | 2 (10)          |
+
+
+
+
+
+

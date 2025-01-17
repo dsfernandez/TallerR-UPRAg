@@ -1,0 +1,146 @@
+---
+title: "Explorando diabetes.csv"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+paquetes
+```{r}
+# Cargar paquetes
+library(tidyverse)
+library(gt)
+library(ggplot2)
+
+```
+
+
+cargar datos
+
+```{r}
+# Cargar datos desde archivo .csv
+diabetes <- read.csv("diabetes.csv")
+head(diabetes)
+```
+
+
+cambiar nombres de variables o columnas
+
+```{r}
+library(tidyverse)
+# Cambiar nombres de columnas
+diabetes1 <- diabetes %>%
+  rename(
+    edad = Age,
+    embarazos = Pregnancies,
+    glucosa = Glucose,
+    presion = BloodPressure,
+    pliegues = SkinThickness,
+    insulina = Insulin,
+    imc = BMI,
+    gen_diabetes = DiabetesPedigreeFunction,
+    edad_diagnostico = Age,
+    diabetes = Outcome
+  )
+
+head(diabetes1)
+```
+
+seleccionar columnas
+
+```{r}
+# Seleccionar columnas
+diabetes2 <- diabetes1 %>%
+  select(glucosa, insulina, gen_diabetes, diabetes)
+
+head(diabetes2)
+```
+
+filtrar y crear archivos csv
+
+```{r}
+# Filtrar datos de acuerdo al diagnóstico de diabetes
+diabetes_diagnosticadas <- diabetes1 %>%
+  filter(diabetes == 1)
+
+diabetes_no_diagnosticadas <- diabetes1 %>%
+  filter(diabetes == 0)
+
+# guardar en archivos .csv sin numero de fila
+write.csv(diabetes_diagnosticadas, "diabetes_diagnosticadas.csv", row.names = FALSE)
+write.csv(diabetes_no_diagnosticadas, "diabetes_no_diagnosticadas.csv", row.names = FALSE)
+```
+
+filtrar para eliminar valores faltantes y crear nueva variable
+
+```{r}
+# Crear nueva variable sin tomar en cuenta valores de insulina y glucosa iguales a 0
+diabetes3 <- diabetes1 %>%
+  filter(insulina != 0 & glucosa != 0) %>%
+  mutate(indice_gi = glucosa / insulina)
+
+head(diabetes3)
+```
+
+estadisticas descriptivas por grupo de diagnostico de diabetes
+
+```{r}
+# Estadísticas descriptivas de glucosa e insulina por diagnóstico de diabetes
+estadisticas_diabetes <- diabetes1 %>%
+  filter(glucosa != 0 | insulina != 0) %>%
+  group_by(diabetes) %>%
+  summarise(
+    media_glucosa = mean(glucosa),
+    desviacion_glucosa = sd(glucosa),
+    media_insulina = mean(insulina),
+    desviacion_insulina = round(sd(insulina),1)
+  )
+estadisticas_diabetes
+```
+
+crear tabla con gt
+
+```{r}
+# tabla con gt cambiando los nombres
+library(gt)
+
+estadisticas_diabetes %>%
+  gt() %>%
+  tab_header(
+    title = "Tabla 1.  Estadísticas de Glucosa e Insulina por Diagnóstico de Diabetes. Datos de mujeres de la etnia Pima en Arizona"
+  ) %>%
+  cols_label(
+    diabetes = "Diagnóstico",
+    media_glucosa = "Media Glucosa",
+    desviacion_glucosa = "D. E. Glucosa",
+    media_insulina = "Media Insulina",
+    desviacion_insulina = "D. E. Insulina"
+  )
+```
+
+histograma de glucosa
+
+```{r}
+library(ggplot2)
+
+hist_gluco <- ggplot(diabetes3, aes(x = glucosa)) +
+  geom_histogram(fill = "purple", color = "black", bins = 12) +
+  labs(
+    x = "Glucosa",
+    y = "Frecuencia"
+  )
+hist_gluco
+```
+
+cargar datos de calcio-ratas
+
+```{r}
+# Cargar datos desde archivo .csv
+calcio_ratas <- read.csv("calcio-ratas.csv")
+head(calcio_ratas)
+```
+

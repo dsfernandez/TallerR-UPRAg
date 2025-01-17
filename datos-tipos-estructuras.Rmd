@@ -1,0 +1,351 @@
+---
+title: "Tipos y Estructuras de Datos"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tipos y Estructuras de Datos en R
+
+En R, los datos se pueden clasificar en diferentes tipos y estructuras.
+En este documento, veremos ejemplos de tipos de datos básicos y
+estructuras de datos más complejas, como vectores, matrices, data
+frames, listas y factores.
+
+------------------------------------------------------------------------
+
+### **1. Tipos de Datos en R**
+
+En R, los datos se pueden clasificar en diferentes tipos básicos:
+numéricos, enteros, caracteres, lógicos, complejos, fechas y horas. Para
+identificar el tipo de un objeto, puedes usar la función `class()` o
+`mode()`.
+
+#### **Ejemplo: Tipos básicos y variables**
+
+```{r tipos-basicos, eval=FALSE, echo=TRUE}
+# Números (numeric)
+numero <- 42.5
+numero
+class(numero)  # "numeric"
+
+# Enteros (integer)
+entero <- as.integer(10)
+entero
+class(entero)  # "integer"
+
+# Caracteres (character)
+texto <- "Hola, mundo"
+texto
+class(texto)  # "character"
+
+# Lógicos (logical)
+logico <- TRUE
+logico
+class(logico)  # "logical"
+
+# Complejos (complex)
+complejo <- 3 + 2i
+complejo
+class(complejo)  # "complex"
+
+# Fechas (Date)
+fecha <- as.Date("2021-10-01")
+fecha
+class(fecha)  # "Date"
+
+# Hora solamente (POSIXct)
+hora <- as.POSIXct("12:00:00", format = "%H:%M:%S")
+hora
+class(hora)  # "POSIXct"
+
+# Fecha con hora (POSIXct)
+fecha_hora <- as.POSIXct("2021-10-01 12:00:00")
+fecha_hora
+class(fecha_hora)  # "POSIXct"
+```
+
+#### **Ejercicio: Identificar tipos de datos**
+
+1.  Crea las siguientes variables y verifica su tipo con `class()`:
+    -   Una variable llamada `edad` con el valor 21.
+    -   Una variable llamada `fiestas` con el texto
+        `"Navidad, Año Nuevo y Reyes"`.
+    -   Una variable llamada `taller_aburrido` con el valor `FALSE`.
+    -   Una variable llamada `fecha_nacimiento` con tu fecha de
+        nacimiento `"aaaa-mm-dd"`.
+
+------------------------------------------------------------------------
+
+### **2. Estructuras de Datos en R**
+
+Para trabajar con datos más allá de variables con un valor, R ofrece
+diferentes estructuras de datos. A continuación, veremos ejemplos de
+vectores, matrices, data frames, listas y factores. Para identificar el
+tipo de una estructura de datos, puedes usar la función `str()` (muestra
+la estructura de un objeto).
+
+#### **a. Vectores**
+
+Un vector es una colección de elementos del mismo tipo. Puedes crear
+vectores con la función `c()`.
+
+```{r vectores, eval=FALSE, echo=TRUE}
+# Crear un vector numérico
+numeros <- c(1.5, 2.3, 3, 4.01, 5.6)
+numeros
+
+# Crear un vector de caracteres
+nombres <- c("Juan", "Ana", "Luis")
+nombres
+
+# Modificación de vectores
+suma <- numeros + 2  # Suma 2 a cada elemento
+suma
+
+# Secuencias
+secuencia <- 1:10  # 1, 2, 3, ..., 10
+secuencia
+
+# Acceder a elementos del vector
+elementoV1 <- numeros[3]  # Tercer elemento
+elementosV2 <- numeros[c(1, 4)]  # Primer y cuarto elemento
+elementoV1
+elementosV2
+```
+
+**Ejercicio:**
+
+1.  Crea un vector llamado `temperaturas` con los valores:
+    `23, 25, 21, 19, 22`.
+2.  Crea un nuevo vector multiplicando cada valor por 3.
+3.  Verifica el tipo de estructura de este vector con `class()` y
+    `str()`.
+4.  Accede y extrae a un vector, el segundo y cuarto elemento del nuevo
+    vector.
+
+------------------------------------------------------------------------
+
+#### **b. Matrices**
+
+Las matrices son arreglos bidimensionales con elementos del mismo tipo.
+
+```{r matrices, eval=FALSE, echo=TRUE}
+# Crear una matriz
+matriz <- matrix(1:9, nrow = 3, ncol = 3)
+matriz
+
+# Acceder a elementos
+elementoM <- matriz[2, 3]  # Fila 2, columna 3
+elementoM
+
+# Acceder a varios elementos
+elementosM2 <- matriz[1:2, c(1,3)]  # Filas 1 y 2, columnas 2 y 3
+elementosM2
+
+# Extraer una fila
+filaM <- matriz[1, ]  # Fila 1 completa
+filaM
+```
+
+**Ejercicio:**
+
+1.  Crea una matriz de 3 filas y 4 columnas con los números del 1 al
+    12.\
+2.  Extrae la segunda fila completa.
+3.  Verifica el tipo de estructura de la matriz con `class()` y `str()`.
+
+------------------------------------------------------------------------
+
+#### **c. Data Frames**
+
+Un data frame es una tabla donde cada columna puede tener un tipo
+diferente de datos. Para crear un data frame, puedes usar la función
+`data.frame()` o convertir un tibble con `as_tibble()`. Puedes crear
+primero los vectores y luego combinarlos en un data frame o hacero
+directamente en la función `data.frame()`. Para acceder a columnas,
+puedes usar el operador `$`. Para seleccionar filas o columnas, puedes
+usar `subset()`.
+
+```{r data-frames, eval=FALSE, echo=TRUE}
+# Crear un data frame
+pacientes <- data.frame(
+  Nombre = c("Juan", "Ana", "Luis"),
+  Edad = c(25, 30, 35),
+  Diabetes = c(TRUE, FALSE, TRUE)
+)
+pacientes
+
+# Acceder a columnas
+edades <- pacientes$Edad
+edades
+
+# Filtrar datos
+diabeticos <- subset(pacientes, Diabetes == TRUE)
+diabeticos
+
+# crear un tibble
+library(tibble)
+tibble_pacientes <- as_tibble(pacientes)
+tibble_pacientes
+```
+
+**Ejercicio:**
+
+1.  Crea un data frame con los datos de 3 estudiantes: Nombre, Nota
+    (número) y Aprobado (TRUE/FALSE).
+2.  Extrae la columna de notas.
+3.  Filtra los estudiantes que aprobaron.
+4.  Verifica el tipo de estructura del data frame con `class()` y
+    `str()`.
+
+------------------------------------------------------------------------
+
+#### **d. Listas**
+
+Las listas pueden contener elementos de diferentes tipos. Se crean con
+la función `list()`.
+
+```{r listas, eval=FALSE, echo=TRUE}
+# Crear una lista
+mi_lista <- list(
+  vector = c(1, 2, 3),
+  texto = "Hola",
+  matriz = matrix(c(3, 5, 8, 1), nrow = 2)
+)
+mi_lista
+# Acceder a elementos
+mi_lista$texto
+mi_lista$matriz[1, 2]
+```
+
+**Ejercicio:**\
+1. Crea una lista llamada `info` que contenga:
+
+-   Un vector con los números del 1 al 5.
+-   Un texto con tu nombre.
+-   Una matriz de 2x2 con los valores del 1 al 4.
+
+------------------------------------------------------------------------
+
+#### **e. Factores**
+
+Los factores representan datos categóricos.
+
+```{r factores, eval=FALSE, echo=TRUE}
+# Crear un factor
+genero <- factor(c("Masculino", "Femenino", "Femenino", "Masculino"))
+
+# Ver niveles
+levels(genero)
+
+# cambiar el orden de los niveles
+genero <- factor(genero, levels = c("Masculino", "Femenino"))
+levels(genero)
+```
+
+**Ejercicio:**
+
+1.  Crea un factor llamado `estado_civil` con los valores: `Soltero`,
+    `Casado`, `Divorciado`.\
+2.  Cambia el orden de los niveles para que `Soltero` sea el primero.
+
+------------------------------------------------------------------------
+
+### **3. Operaciones con los Datos**
+
+En R, puedes realizar operaciones matemáticas, lógicas y de texto con
+los datos. A continuación, veremos ejemplos de operaciones con datos
+numéricos, de texto y lógicos.
+
+#### **Ejercicio 1: Operaciones con Datos Numéricos**
+
+Crear las variables `var1` y `var2` con valores numéricos y realizar las
+siguientes operaciones:
+
+-   Suma: `var1 + var2`
+
+-   Resta: `var1 - var2`
+
+-   Multiplicación: `var1 * var2`
+
+-   División: `var1 / var2`
+
+-   Potencia: `var1 ^ var2`
+
+-   Raíz cuadrada de `var1` y `var2` Usar `sqrt()`
+
+-   Logaritmo natural de `var1` y `var2` Usar `log()`
+
+-   Valor absoluto de `var1` / `var2` Usar `abs()`
+
+-   Crea una variable con tu fecha de nacimiento y otra con la fecha
+    actual. Calcula tu edad.
+
+#### **Ejercicio 2: Operaciones con Datos de Texto**
+
+Crear las variables `texto1` y `texto2` con valores de texto (tu nombre,
+frases cortas) y realizar las siguientes operaciones:
+
+-   Concatenar:`paste(texto1, texto2)`
+
+-   Número de caracteres: `nchar(texto1)`
+
+-   Convertir a mayúsculas: `toupper(texto1)`
+
+-   Convertir a minúsculas: `tolower(texto2)`
+
+-   Extraer una parte del texto: `substr(texto1, 1, 3)`
+
+-   Reemplazar parte del texto: `sub("a", "o", texto1)`
+
+-   Dividir el texto en palabras: `strsplit(texto2, " ")`
+
+#### **Ejercicio 3: Operaciones con Datos Lógicos**
+
+Usando las variables anteriores, realizar las siguientes operaciones
+lógicas:
+
+-   Comparar si `var1` es mayor que `var2`
+
+-   Comparar si `texto1` es igual a `texto2`
+
+-   Comparar si `var1` es igual a `var2`
+
+-   Comparar si `var1` es diferente de `var2` Usar `!=`
+
+-   Comparar si `texto1` contiene la palabra "hola" Usar
+    `grepl("texto", objeto)`
+
+------------------------------------------------------------------------
+
+#### **Ejercicio 4: Exploración de Datos**
+
+Usa el siguiente código para crear un data frame de ejemplo:
+
+```{r}
+data <- data.frame(
+  Producto = c("A", "B", "C", "D"),
+  Precio = c(10, 15, 8, 12),
+  Ventas = c(100, 200, 150, 50)
+)
+```
+
+Responde:
+
+1.  Calcula el ingreso total por producto (`Precio * Ventas`) y agrega
+    una nueva columna al data frame.
+
+2.  Encuentra el producto con mayores ventas. Usar `subset` y `max()` en
+    un filtrado.
+
+------------------------------------------------------------------------
+
+

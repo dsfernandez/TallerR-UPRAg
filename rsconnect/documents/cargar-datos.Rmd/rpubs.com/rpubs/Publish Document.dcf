@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/1257567/6250c5b3403544b48b6e39995122a5cd
+bundleId: https://api.rpubs.com/api/v1/document/1257567/6250c5b3403544b48b6e39995122a5cd
+url: http://rpubs.com/dsfernandez/1257567
+version: 1

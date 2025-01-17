@@ -1,0 +1,59 @@
+---
+title: "Proyecto DIABETES"
+author: "D. S. Fernández del Viso"
+format: docx
+editor: visual
+---
+
+## Análisis de los datos del archivo `diabetes.csv`
+
+El objetivo principal del proyecto es la producción de un documento **estilo artículo científico** sobre el análisis de los datos de `diabetes.csv` y que incluya los siguientes elementos:
+
+### "Abstract" (para prepararlo al final)
+
+Debe incluir:
+
+-   Párrafo sobre el planteamiento del problema o pregunta, hipótesis principal.
+-   Párrafo sobre la metodología y análisis realizados.
+-   Párrafo sobre los resultados principales y conclusión.
+
+### Introducción
+
+Debe incluir:
+
+-   Información general sobre la diabetes, especialmente en mujeres de comunidades minoritarias.
+-   Mediciones relacionadas al diagnóstico de la diabetes y sus factores de riesgo.
+-   Preguntas de investigación.
+-   Hipótesis de trabajo, con premisa y predicción.
+-   Una foto o gráfico relacionado al tema.
+
+### Metodología Estadística
+
+Para el análisis de los datos debe incluir al menos dos de las pruebas estadísticas vistas en el taller.
+
+Debe incluir:
+
+-   Descripción de las variables a analizar (metadata).
+-   Análisis exploratorio de los datos que va a realizar.
+-   Justificación de las pruebas estadísticas a utilizar.
+-   Hipótesis nula y alternativa para cada prueba estadística.
+
+### Resultados
+
+Debe incluir:
+
+-   Tablas (puede hacerlas en Word) y gráficos (con sus respectivas leyendas descriptivas) de los resultados de las estadísticas descriptivas y las pruebas estadísticas.
+-   Párrafos explicativos de los resultados de pruebas estadísticas y su interpretación.
+
+### Discusión y Conclusión
+
+Debe incluir:
+
+-   Contrastar los resultados de las pruebas estadísticas con las hipótesis planteadas.
+-   Discusión de los resultados en el contexto de la literatura sobre diabetes y la salud de las mujeres de comunidades minoritarias.
+-   Limitaciones del estudio y posibles mejoras.
+-   Conclusiones finales.
+
+### Referencias
+
+Las referencias pueden estar en cualquier formato, pero deben ser consistentes e incluir: autores, año, título, revista o editorial, volumen, páginas y DOI.

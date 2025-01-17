@@ -1,0 +1,35 @@
+---
+title: "pruebas de hipótesis"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+una muestra
+
+```{r}
+pcb <- read.csv("datos_pcb.csv")
+pcb
+```
+
+```{r}
+t2 <- t.test(pcb$concPCB, mu = 0.6, alternative = "greater", conf.level = 0.95)
+t2
+```
+
+dos muestras
+
+```{r}
+semillas <- read.csv("semillas-sample.csv")
+str(semillas)
+```
+
+```{r}
+t_test_result <- t.test(long_mm ~ year, data = semillas)
+t_test_result
+```
+

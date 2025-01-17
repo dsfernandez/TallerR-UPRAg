@@ -1,0 +1,79 @@
+---
+title: "Entrada de Datos"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Entrada de Datos al Ambiente de Trabajo RStudio
+
+### Entrada de datos con vectores en un data frame
+
+```{r}
+# Crear un data frame manualmente
+estudiantes <- data.frame(
+  Nombre = c("Ana", "Juan", "Luis"),
+  Edad = c(23, 35, 28),
+  Ciudad = c("Coamo", "Aguadilla", "Camuy")
+)
+estudiantes
+```
+
+##### Ejercicio: Crear un data frame con información de tus amigos o familiares (o invéntalos).
+
+1. Crea un vector con los nombres de tus amigos o familiares.
+2. Crea un vector con las edades de tus amigos o familiares.
+3. Crea un vector con las ciudades de tus amigos o familiares.
+4. Crea un data frame con la información anterior.
+
+### Usar datos contenidos en paquetes
+
+```{r}
+# Cargar el paquete
+library(MASS)
+
+# Ver los datos contenidos en el paquete
+data(package = "MASS")
+
+# Cargar el data frame "Animals"
+data(Animals)
+
+# Ver la estructura del data frame "Animals"
+str(Animals)
+
+# Ver las primeras filas del data frame "Animals"
+head(Animals)
+```
+
+##### Ejercicio: Cargar el data frame `bacteria` del paquete `MASS`.  
+
+-   Ver la estructura del data frame.
+-   Ver las primeras filas del data frame.
+
+### Cargar datos desde un archivo externo
+
+#### Archivos de texto (.csv)
+
+```{r}
+# Cargar datos desde un archivo CSV
+crec_bact <- read.csv("bacteria19.csv")
+head(crec_bact)
+```
+
+##### Ejercicio: Usar el comando `read.csv()` para cargar el archivo `bacteria19.csv`.
+
+#### Archivos de Excel (.xlsx)
+
+```{r}
+# Cargar datos desde un archivo xlsx
+library(readxl)
+ciudades <- read_excel("death_small_cities.xlsx",
+                       sheet = "data")
+head(ciudades)
+```
+
+##### Ejercicio: Usar el comando `read_excel()` para cargar el archivo `death_large_cities.xlsx` sin especificar la hoja (sheet).

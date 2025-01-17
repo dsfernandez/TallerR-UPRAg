@@ -1,0 +1,26 @@
+---
+title: "dia 1"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+y = 7
+y
+```
+
+# hola
+```{r}
+var1 <- 10.5
+var2 <- 6.7
+mayor <- var1 > var2
+mayor
+```
+

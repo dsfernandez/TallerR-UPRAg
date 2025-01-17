@@ -1,0 +1,67 @@
+---
+title: "Metadata del Archivo `diabetes`"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The metadata from the uploaded file (`diabetes-data-set-metadata.json`) is as follows:
+
+### **Dataset Overview**
+- **Dataset Name:** Diabetes Dataset  
+- **Source:** National Institute of Diabetes and Digestive and Kidney Diseases  
+- **Objective:** Predict diabetes based on diagnostic measurements.  
+- **Population:** Female patients aged 21 years or older of Pima Indian heritage.
+
+---
+
+### **Attributes in the Dataset**
+1. **Pregnancies:** Number of times pregnant  
+2. **Glucose:** Plasma glucose concentration after 2 hours in an oral glucose tolerance test  
+3. **BloodPressure:** Diastolic blood pressure (mm Hg)  
+4. **SkinThickness:** Triceps skin fold thickness (mm)  
+5. **Insulin:** 2-Hour serum insulin (mu U/ml)  
+6. **BMI:** Body mass index (weight in kg/(height in m)^2)  
+7. **DiabetesPedigreeFunction:** A function that scores the likelihood of diabetes based on family history  
+8. **Age:** Age in years  
+9. **Outcome:** Class variable (0 = no diabetes, 1 = diabetes)
+
+---
+
+### **Dataset Details**
+- **Number of Instances:** 768  
+- **Number of Attributes:** 8 + 1 outcome variable  
+- **Data Type:** All attributes are numeric.  
+- **Missing Values:** Yes, some attributes have missing values.  
+
+---
+
+### **License and Accessibility**
+- **License:** CC0: Public Domain  
+- **Is Accessible for Free:** Yes  
+- **Publisher:** Kaggle  
+- **Creator:** Mehmet Akturk  
+
+---
+
+### **Relevant Information**
+- The dataset is based on diagnostic criteria defined by the World Health Organization (e.g., 2-hour post-load plasma glucose ≥ 200 mg/dl).  
+- It has been used in medical research and machine learning applications (e.g., ADAP algorithm for diabetes prediction).
+- **Class Distribution:** The “Outcome” variable indicates whether a person tested positive for diabetes.
+
+---
+
+### **Additional Metadata**
+- **File:** `diabetes.csv`  
+- **Columns Description:**
+  - `Pregnancies`, `Glucose`, `BloodPressure`, `SkinThickness`, `Insulin`, `BMI`, `DiabetesPedigreeFunction`, `Age`, `Outcome`
+- **File Format:** CSV  
+- **File Size:** 8.914 KB  
+
+---

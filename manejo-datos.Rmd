@@ -1,0 +1,450 @@
+---
+title: "Manejo de Datos, Estadísticas Descriptivas y Visualización en R"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Cargar Datos en R
+
+En R, puedes cargar datos desde archivos externos como .csv, .txt, .xls o .xlsx. Para cargar un archivo .csv, puedes usar la función `read.csv()` o `read.csv2()`.
+
+Vamos a cargar los datos de tres archivos que utilizaremos en este documento:
+
+1. `diabetes.csv`: Datos de una población de mujeres de la etnia Pima en Arizona.
+
+```{r}
+# Cargar datos desde archivo .csv
+diabetes <- read.csv("diabetes.csv")
+head(diabetes)
+```
+
+2. `calcio-ratas.csv`: Datos de un estudio sobre el efecto de estrógenos sobre el calcio plasmático en ratas.
+
+```{r}
+# Cargar datos desde archivo .csv
+calcio_ratas <- read.csv("calcio-ratas.csv")
+head(calcio_ratas)
+```
+
+3. `melocactus.xlsx`: Datos de un estudio sobre una población de *Melocactus intortus* en Guánica, Puerto Rico.
+
+```{r}
+# Cargar datos desde archivo .xlsx
+library(readxl)
+melocactus <- read_excel("melocactus.xlsx", sheet = "2019")
+head(melocactus)
+```
+
+### Manejo del archivo `diabetes.csv`
+
+Utilizaremos el paquete `tidyverse` para limpiar, seleccionar, filtrar y transformar los datos del archivo `diabetes.csv`.  Permite el uso de funciones como `select()`, `filter()`, `mutate()`, `rename()`, entre otras y la concatenación de operaciones con el operador `%>%`.
+
+#### Cambio de nombres de columnas
+
+```{r}
+library(tidyverse)
+
+# Cambiar nombres de columnas
+diabetes1 <- diabetes %>%
+  rename(
+    edad = Age,
+    embarazos = Pregnancies,
+    glucosa = Glucose,
+    presion = BloodPressure,
+    pliegues = SkinThickness,
+    insulina = Insulin,
+    imc = BMI,
+    gen_diabetes = DiabetesPedigreeFunction,
+    edad_diagnostico = Age,
+    diabetes = Outcome
+  )
+
+head(diabetes1)
+```
+
+#### Seleccionar columnas
+
+Vamos a seleccionar las columnas que tengan información sobre glucosa, insulina, pedigree de diabetes y diagnóstico.
+
+```{r}
+# Seleccionar columnas
+diabetes2 <- diabetes1 %>%
+  select(glucosa, insulina, gen_diabetes, diabetes)
+
+head(diabetes2)
+```
+
+##### Ejercicio: selecciona las variables físicas (edad, presión, imc) y el diagnóstico de diabetes.
+
+
+#### Filtrar datos
+
+Vamos a crear dos nuevos conjuntos de datos: uno de las diagnosticadas con diabetes y otro de las no diagnosticadas.
+
+```{r}
+# Filtrar datos de acuerdo al diagnóstico de diabetes
+diabetes_diagnosticadas <- diabetes1 %>%
+  filter(diabetes == 1)
+
+diabetes_no_diagnosticadas <- diabetes1 %>%
+  filter(diabetes == 0)
+
+# guardar en archivos .csv sin numero de fila
+write.csv(diabetes_diagnosticadas, "diabetes_diagnosticadas.csv", row.names = FALSE)
+write.csv(diabetes_no_diagnosticadas, "diabetes_no_diagnosticadas.csv", row.names = FALSE)
+```
+
+##### Ejercicio: filtra los datos de las mujeres con más de 30 años y guarda en un archivo .csv sin número de fila.
+
+#### Crear nueva variable
+
+Vamos a crear la variable índice glucosa/insulina.
+
+```{r}
+# Crear nueva variable sin tomar en cuenta valores de insulina y glucosa iguales a 0
+diabetes3 <- diabetes1 %>%
+  filter(insulina != 0 & glucosa != 0) %>%
+  mutate(indice_gi = glucosa / insulina)
+
+head(diabetes3)
+```
+
+#### Ejercicio: crea una nueva variable con el índice imc/presión.  Filtra los datos para que no tengan valores de presión o imc iguales a 0.
+
+### Estadísticas descriptivas de `diabetes.csv`
+
+#### Estadísticas por grupos
+
+Vamos a calcular las estadísticas descriptivas - media y desviación estándar - de las variables glucosa e insulina agrupadas por el diagnóstico de diabetes.  En cada caso vamos a filtrar los datos que sean ceros.
+
+```{r}
+# Estadísticas descriptivas de glucosa e insulina por diagnóstico de diabetes
+estadisticas_diabetes <- diabetes1 %>%
+  filter(glucosa != 0 & insulina != 0) %>%
+  group_by(diabetes) %>%
+  summarise(
+    media_glucosa = mean(glucosa),
+    desviacion_glucosa = sd(glucosa),
+    media_insulina = mean(insulina),
+    desviacion_insulina = round(sd(insulina),1)
+  )
+estadisticas_diabetes
+```
+
+Vamos a crear una tabla `gt` con los resultados
+
+```{r}
+# tabla con gt cambiando los nombres
+library(gt)
+
+estadisticas_diabetes %>%
+  gt() %>%
+  tab_header(
+    title = "Tabla 1.  Estadísticas de Glucosa e Insulina por Diagnóstico de Diabetes. Datos de mujeres de la etnia Pima en Arizona"
+  ) %>%
+  cols_label(
+    diabetes = "Diagnóstico",
+    media_glucosa = "Media Glucosa",
+    desviacion_glucosa = "D. E. Glucosa",
+    media_insulina = "Media Insulina",
+    desviacion_insulina = "D. E. Insulina"
+  )
+
+```
+
+##### Ejercicio: calcula las estadísticas descriptivas de las variables físicas (edad, presión, imc) por diagnóstico de diabetes. Filtra los datos para que no tengan valores de presión o imc iguales a 0.
+
+##### Ejercicio: redondea los valores a una cifra decimal y vuelve a crear las tablas con `gt`.
+
+---
+
+### Estadísticas descriptivas en `calcio-ratas.csv`
+
+Vamos a crear una tabla agrupando por hormona y sexo y calculando la media y desviación estándar del calcio plasmático.
+
+```{r}
+# Estadísticas descriptivas de calcio plasmático por hormona y sexo
+estadisticas_calcio <- calcio_ratas %>%
+  group_by(hormona, sexo) %>%
+  summarise(
+    media_calcio = mean(caplasma),
+    desviacion_calcio = sd(caplasma)
+) %>%
+  ungroup()
+estadisticas_calcio
+```
+
+Crear una tabla `gt` con los resultados
+
+```{r}
+# tabla con gt cambiando los nombres
+estadisticas_calcio %>%
+  gt() %>%
+  tab_header(
+    title = "Tabla 2.  Estadísticas de Calcio Plasmático por Hormona y Sexo. Datos de un estudio sobre el efecto de estrógenos sobre el calcio plasmático en ratas"
+  ) %>%
+  cols_label(
+    sexo = "Sexo",
+    hormona = "Hormona",
+    media_calcio = "Media Calcio",
+    desviacion_calcio = "D. E. Calcio"
+  )
+
+```
+
+##### Ejercicio: calcula el error estándar de la media y vuelve a crear la tabla con `gt`.  La fórmula para el error estándar de la media es `sd(caplasma) / sqrt(n())`.
+
+### Manejo de datos en `melocactus.xlsx`
+
+#### Creación de nuevas variables
+
+Vamos a crear las variables coordX y coordY a partir de la variables azimuto y distancia, utilizando las fórmulas:
+
+- coordX = distancia * sin(azimuto)
+- coordY = distancia * cos(azimuto)
+
+El azimuto está en grados, por lo que debemos convertirlo a radianes mediante la fórmula:
+
+- radianes = grados * pi / 180
+
+También vamos a sumar 100 a las coordenadas para que no sean negativas.
+
+```{r}
+# Crear nuevas variables coordX y coordY
+melocactus1 <- melocactus %>%
+  mutate(
+    radianes = azimuto * pi / 180,
+    coordX = distancia * sin(radianes) + 100,
+    coordY = distancia * cos(radianes) + 100
+  )
+
+head(melocactus1)
+```
+
+#### Filtrar datos
+
+Vamos a filtrar los datos para que solo incluyan las plantas que tienen inflorescencia con longitud mayor que 0.
+
+```{r}
+# Filtrar datos para inflorescencias con longitud mayor que 0
+melocactus2 <- melocactus1 %>%
+  filter(long_inflo > 0)
+
+head(melocactus2)
+```
+
+#### Ejercicio: filtrar los datos para tener solo las plantas sanas (S).
+
+### Estadísticas descriptivas en `melocactus.xlsx`
+
+Obtener las proporciones de plantas sanas (S), enfermas (E) y muertas (X) en la población.
+
+```{r}
+# Estadísticas descriptivas de estado de las plantas
+estadisticas_melocactus <- melocactus1 %>%
+  group_by(estado) %>%
+  summarise(
+    prop = n() / nrow(melocactus1)
+  ) %>%
+  ungroup()
+estadisticas_melocactus
+# cambiar nombres de estado
+estadisticas_melocactus <- estadisticas_melocactus %>%
+  mutate(
+    estado = case_when(
+      estado == "E" ~ "Enfermas",
+      estado == "S" ~ "Sanas",
+      estado == "X" ~ "Muertas"
+    )
+  )
+```
+
+Crear una tabla `gt` con los resultados
+
+```{r}
+# tabla con gt cambiando los nombres
+estadisticas_melocactus %>%
+  gt() %>%
+  tab_header(
+    title = "Tabla 3.  Proporción de Plantas Sanas, Enfermas y Muertas. Datos de un estudio sobre una población de *Melocactus intortus* en Guánica, Puerto Rico"
+  ) %>%
+  cols_label(
+    estado = "Estado",
+    prop = "Proporción"
+  )
+
+```
+
+##### Ejercicio: usar `table()` para contar las plantas por estado.
+
+### Visualización de Datos de `diabetes.csv`
+
+#### Histogramas
+
+Vamos a crear un histograma para las variables glucosa e insulina.  Usaremos el paquete `ggplot2` para crear gráficos.  El archivo que usaremos es `diabetes3` que está filtrado para valores de cero.
+
+#### Histograma de glucosa
+
+```{r}
+# Histograma de glucosa
+library(ggplot2)
+
+hist_gluco <- ggplot(diabetes3, aes(x = glucosa)) +
+  geom_histogram(fill = "skyblue", color = "black", bins = 20) +
+  labs(
+    x = "Glucosa",
+    y = "Frecuencia"
+  )
+hist_gluco
+
+```
+
+**Figura 1.**  Histograma de glucosa. Datos de mujeres de la etnia Pima en Arizona.
+
+#### Histograma de insulina
+
+```{r}
+# Histograma de insulina
+hist_insulina <- ggplot(diabetes3, aes(x = insulina)) +
+  geom_histogram(fill = "lightgreen", color = "black", bins = 20) +
+  labs(
+    x = "Insulina",
+    y = "Frecuencia"
+  )
+hist_insulina
+
+```
+
+**Figura 2.**  Histograma de insulina. Datos de mujeres de la etnia Pima en Arizona.
+
+##### Ejercicio: crea un histograma de la variable índice glucosa/insulina.
+
+### Gráfico de dispersión
+
+Vamos a crear un gráfico de dispersión para las variables glucosa e insulina.
+
+```{r}
+# Gráfico de dispersión de glucosa e insulina
+scatter_gluco_insulina <- ggplot(diabetes3, aes(x = glucosa, y = insulina)) +
+  geom_point(color = "darkred") +
+  labs(
+    x = "Glucosa",
+    y = "Insulina"
+  )
+scatter_gluco_insulina
+
+```
+
+**Figura 3.**  Gráfico de Dispersión de Glucosa e Insulina. Datos de mujeres de la etnia Pima en Arizona.
+
+##### Ejercicio: crea un gráfico de dispersión para las variables índice glucosa/insulina.
+
+
+### Visualización de Datos de `calcio-ratas.csv`
+
+#### Gráfica de barras separadas
+
+Vamos a crear una gráfica de barras separadas para el calcio plasmático por hormona y sexo. Incluiremos el error estándar de la media.
+
+```{r}
+# Gráfica de barras separadas de calcio plasmático por hormona y sexo usando los datos de calcio-ratas.csv
+bar_calcio <- ggplot(estadisticas_calcio, aes(x = hormona, y = media_calcio, fill = sexo)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_errorbar(aes(ymin = media_calcio - desviacion_calcio, ymax = media_calcio + desviacion_calcio), width = 0.2, position = position_dodge(0.9)) +
+  labs(
+    x = "Hormona",
+    y = "Media Calcio"
+  ) +
+  scale_fill_manual(values = c("darkblue", "darkred"))
+
+bar_calcio
+
+```
+
+**Figura 4.**  Gráfica de Barras de Calcio Plasmático por Hormona y Sexo. Datos de un estudio sobre el efecto de estrógenos sobre el calcio plasmático en ratas.
+
+#### Gráfica de cajas
+
+Vamos a crear una gráfica de cajas para el calcio plasmático por hormona y sexo.
+
+```{r}
+# Gráfica de cajas de calcio plasmático por hormona y sexo
+box_calcio <- ggplot(calcio_ratas, aes(x = hormona, y = caplasma, fill = sexo)) +
+  geom_boxplot() +
+  labs(
+    x = "Hormona",
+    y = "Calcio Plasmático"
+  ) +
+  scale_fill_manual(values = c("lightblue", "orange"))
+
+box_calcio
+
+```
+
+**Figura 5.**  Gráfica de Cajas de Calcio Plasmático por Hormona y Sexo. Datos de un estudio sobre el efecto de estrógenos sobre el calcio plasmático en ratas.
+
+### Visualización de Datos de `melocactus.xlsx`
+
+#### Mapa de ubicación de plantas
+
+Vamos a crear un mapa de ubicación de las plantas de *Melocactus intortus* en Guánica, Puerto Rico.
+
+```{r}
+melo = ggplot(melocactus1, aes(coordX, coordY, color = estado, size = altura_planta)) +
+  geom_point()
+melo
+```
+
+**Figura 6.**  Mapa de Ubicación de Plantas de *Melocactus intortus* en Guánica, Puerto Rico. Incluye información sobre el estado de las plantas y la altura de las plantas.
+
+#### Gráfico de dispersión
+
+Vamos a crear un gráfico de dispersión para la altura de las plantas y la longitud de la inflorescencia.
+
+```{r}
+
+scatter_altura_inflo <- ggplot(melocactus2, aes(x = altura_planta, y = long_inflo, color = estado)) +
+  geom_point() +
+  labs(
+    title = "Gráfico de Dispersión de Altura de Plantas y Longitud de Inflorescencia",
+    x = "Altura de Planta",
+    y = "Longitud de Inflorescencia"
+  ) +
+  scale_color_manual(values = c("darkgreen", "darkblue", "darkred"))
+
+scatter_altura_inflo
+
+
+```
+
+**Figura 8.**  Gráfico de Dispersión de Altura de Plantas y Longitud de Inflorescencia. Datos de un estudio sobre una población de *Melocactus intortus* en Guánica, Puerto Rico.
+
+### Gráfica de barras de altura promedio por estado
+
+Vamos a crear una gráfica de barras para la altura promedio de las plantas por estado y su error estándar.
+
+```{r}
+# Gráfica de barras de altura promedio por estado
+bar_altura <- ggplot(melocactus2, aes(x = estado, y = altura_planta, fill = estado)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge") +
+  geom_errorbar(stat = "summary", fun.data = "mean_se", position = position_dodge(0.9)) +
+  labs(
+    x = "Estado",
+    y = "Altura Promedio"
+  ) +
+  scale_fill_manual(values = c("darkgreen", "darkblue", "darkred"))
+
+bar_altura
+
+```
+
+**Figura 9.**  Gráfica de Barras de Altura Promedio por Estado. Datos de un estudio sobre una población de *Melocactus intortus* en Guánica, Puerto Rico.
+
+##### Ejercicio: crea una gráfica de barras de la longitud promedio de la inflorescencia por estado y su error estándar.
+

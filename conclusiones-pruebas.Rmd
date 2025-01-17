@@ -1,0 +1,208 @@
+---
+title: "Conclusiones sobre Resultados de Pre- y Post-pruebas"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Resultados de la Pre- y Post-prueba: Discusión y Conclusiones
+
+El documento presenta un análisis y síntesis de los resultados obtenidos en la pre- y post-prueba realizadas en el taller de análisis de datos con R Studio. A continuación, se resumen los hallazgos más relevantes y se presentan recomendaciones específicas para futuros talleres.
+
+---
+
+### **1. Desempeño General**
+- **Pre-prueba:** Los resultados iniciales muestran que los participantes tenían un conocimiento limitado sobre los temas evaluados, con un alto porcentaje de respuestas incorrectas o insuficientes en casi todos los ítems.
+- **Post-prueba:** Se observa una mejora significativa en la mayoría de los temas, lo que indica que los participantes adquirieron conocimientos importantes durante el taller. Sin embargo, en algunos casos, persisten áreas de confusión o aprendizaje incompleto.
+
+---
+
+### **2. Análisis por Ítems y Recomendaciones**
+
+#### **ITEM 1: ¿Qué es R Studio y para qué se utiliza?**
+- **Resultados:**
+  - Pre-prueba: 71% respondió correctamente.
+  - Post-prueba: 54% respondió correctamente, pero aumentaron las respuestas incorrectas relacionadas con categorías irrelevantes (e.g., diseño gráfico).
+- **Recomendación:**
+  - Incluir una introducción más clara y enfocada sobre qué es R Studio y su propósito, evitando conceptos que puedan generar confusión.
+
+---
+
+#### **ITEM 2: Componentes principales de la interfaz de R Studio**
+- **Resultados:**
+  - Pre-prueba: Todas las respuestas fueron insuficientes.
+  - Post-prueba: Mejoras significativas, con un 14% de respuestas buenas y 19% aceptables.
+- **Recomendación:**
+  - Realizar una demostración práctica más detallada de la interfaz de R Studio, destacando los componentes clave y sus funciones específicas.
+
+---
+
+#### **ITEM 3: Tipos de datos en R**
+- **Resultados:**
+  - Pre-prueba: Solo 5% de respuestas parcialmente aceptables.
+  - Post-prueba: 30% de respuestas buenas y 30% parcialmente aceptables.
+- **Recomendación:**
+  - Reforzar los conceptos básicos de los tipos de datos en R, utilizando ejemplos prácticos y ejercicios interactivos.
+
+---
+
+#### **ITEM 4: Comandos para verificar tipos de datos**
+- **Resultados:**
+  - Pre-prueba: 15% de respuestas correctas.
+  - Post-prueba: 60% de respuestas correctas, pero persiste cierta confusión con comandos inexistentes.
+- **Recomendación:**
+  - Dedicar tiempo a explicar los comandos válidos como `typeof()`, `class()` y `str()`, diferenciándolos de comandos incorrectos.
+
+---
+
+#### **ITEM 5: Cargar un archivo CSV**
+- **Resultados:**
+  - Pre-prueba: Solo 11% de respuestas correctas.
+  - Post-prueba: 95% de respuestas correctas.
+- **Recomendación:**
+  - Este tema se dominó bien en el post-prueba. Mantener la práctica actual y reforzar la diferencia entre cargar CSVs y otros formatos como Excel.
+
+---
+
+#### **ITEM 6: Propósito de las estadísticas descriptivas**
+- **Resultados:**
+  - Pre-prueba: 35% de respuestas buenas.
+  - Post-prueba: 30% de respuestas buenas, pero aumentaron las respuestas incorrectas.
+- **Recomendación:**
+  - Aclarar la diferencia entre estadísticas descriptivas e inferenciales, enfatizando el propósito central de resumir y describir datos.
+
+---
+
+#### **ITEM 7: Función para calcular el promedio**
+- **Resultados:**
+  - Pre-prueba: 20% de respuestas correctas.
+  - Post-prueba: 100% de respuestas correctas.
+- **Recomendación:**
+  - Este tema fue completamente dominado. No requiere cambios significativos.
+
+---
+
+#### **ITEM 8: Gráfico adecuado para dos variables numéricas**
+- **Resultados:**
+  - Pre-prueba: 50% de respuestas correctas.
+  - Post-prueba: Solo 25% de respuestas correctas, con un aumento significativo en respuestas incorrectas.
+- **Recomendación:**
+  - Reforzar el propósito del gráfico de dispersión y su diferencia con histogramas y diagramas de barras, utilizando ejemplos visuales.
+
+---
+
+#### **ITEM 9: Variables necesarias para un histograma**
+- **Resultados:**
+  - Pre-prueba: 0% de respuestas correctas.
+  - Post-prueba: 40% de respuestas correctas.
+- **Recomendación:**
+  - Aclarar que un histograma requiere solo una variable numérica, utilizando ejercicios prácticos para reforzar el concepto.
+
+---
+
+#### **ITEM 10: Función para gráficos de barras**
+- **Resultados:**
+  - Pre-prueba: 58% de respuestas correctas.
+  - Post-prueba: 75% de respuestas correctas.
+- **Recomendación:**
+  - Destacar las diferencias entre funciones como `barplot()`, `hist()` y `boxplot()` para evitar confusiones.
+
+---
+
+#### **ITEM 11: Código para gráficos de dispersión**
+- **Resultados:**
+  - Pre-prueba: 0% de respuestas correctas.
+  - Post-prueba: 15% de respuestas correctas, pero 65% incorrectas.
+- **Recomendación:**
+  - Introducir ejercicios prácticos que utilicen tanto `plot()` como `ggplot2` para crear gráficos de dispersión, explicando la sintaxis paso a paso.
+
+---
+
+#### **ITEM 12: Prueba de hipótesis estadística**
+- **Resultados:**
+  - Pre-prueba: 90% de respuestas parcialmente correctas.
+  - Post-prueba: 85% de respuestas parcialmente correctas.
+- **Recomendación:**
+  - Profundizar en el concepto de pruebas de hipótesis, explicando claramente la hipótesis nula, alternativa y el uso del valor p.
+
+---
+
+#### **ITEM 13: Prueba para comparar 3 o más medias**
+- **Resultados:**
+  - Pre-prueba: 30% de respuestas correctas.
+  - Post-prueba: 90% de respuestas correctas.
+- **Recomendación:**
+  - Este tema mostró una mejora significativa. Mantener la práctica actual.
+
+---
+
+#### **ITEM 14: Relación causa-efecto**
+- **Resultados:**
+  - Pre-prueba: 25% de respuestas correctas.
+  - Post-prueba: 60% de respuestas correctas.
+- **Recomendación:**
+  - Aclarar que el análisis de regresión es la prueba adecuada para relaciones causa-efecto, diferenciándola de pruebas como chi-cuadrado y ANOVA.
+
+---
+
+#### **ITEM 15: Comparación de dos medias**
+- **Resultados:**
+  - Pre-prueba: 25% de respuestas correctas.
+  - Post-prueba: 65% de respuestas correctas.
+- **Recomendación:**
+  - Reforzar el uso de la prueba t y sus aplicaciones específicas.
+
+---
+
+#### **ITEM 16: Asociación entre variables categóricas**
+- **Resultados:**
+  - Pre-prueba: 20% de respuestas correctas.
+  - Post-prueba: 40% de respuestas correctas.
+- **Recomendación:**
+  - Explicar con mayor claridad el uso de la prueba chi-cuadrado, utilizando ejemplos prácticos.
+
+---
+
+#### **ITEM 17: Valor p**
+- **Resultados:**
+  - Pre-prueba: 15% de respuestas correctas.
+  - Post-prueba: 40% de respuestas correctas.
+- **Recomendación:**
+  - Profundizar en la definición y uso del valor p, utilizando ejemplos prácticos para ilustrar su interpretación.
+
+---
+
+#### **ITEM 18: Pasos para un proyecto de análisis de datos**
+- **Resultados:**
+  - Pre-prueba: 5% de respuestas correctas.
+  - Post-prueba: 50% de respuestas correctas.
+- **Recomendación:**
+  - Reforzar el flujo de trabajo de análisis de datos, desde la definición del objetivo hasta la interpretación de resultados.
+
+---
+
+### **Conclusiones Generales**
+- Los resultados muestran que el taller fue efectivo en mejorar el conocimiento de los participantes, especialmente en temas relacionados con funciones básicas de R y pruebas estadísticas.
+- Persisten áreas de confusión en conceptos más avanzados, como gráficos de dispersión, hipótesis estadísticas y pruebas específicas.
+
+---
+
+### **Recomendaciones Generales para Futuros Talleres**
+1. **Refuerzo de conceptos básicos:**
+   - Dedicar más tiempo a temas fundamentales como tipos de datos, gráficos y comandos básicos.
+2. **Prácticas interactivas:**
+   - Incorporar ejercicios prácticos y proyectos pequeños para aplicar los conceptos aprendidos.
+3. **Materiales de apoyo:**
+   - Proveer guías y resúmenes con ejemplos claros y explicaciones detalladas.
+4. **Evaluación continua:**
+   - Implementar evaluaciones intermedias para identificar áreas de confusión y abordarlas antes de la post-prueba.
+5. **Grupos pequeños:**
+   - Dividir a los participantes en grupos pequeños para actividades prácticas, con un enfoque personalizado en sus dudas.
+
+Estas estrategias ayudarán a consolidar el aprendizaje y garantizar una mejor comprensión de los temas clave en futuros talleres.

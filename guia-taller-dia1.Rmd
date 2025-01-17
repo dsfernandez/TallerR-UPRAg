@@ -1,0 +1,127 @@
+---
+title: "Guía del Taller Día 1"
+author: "D. S. Fernández del Viso"
+date: "`r Sys.Date()`"
+output: powerpoint_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Taller R UPR-Aguadilla - Día 1
+
+Esta guía es un resumen de las etapas a seguir cada día en el taller de R que se llevará a cabo en la UPR-Aguadilla.
+
+## Agenda del Taller
+
+-   DÍA 1. R Studio, Formatos de Archivos, Datos y Objetos en R
+-   DÍA 2. Estadísticas Descriptivas y Visualización de Datos
+-   DÍA 3. Inferencias y Pruebas de Hipótesis
+-   DÍA 4. Proyectos
+
+En este enlace puedes encontrar la agenda detallada del taller:
+
+[Agenda del Taller](https://docs.google.com/document/d/15xtmZBXJik_7kMdL3uNiIHy8LV0Gfukk25VGcpiVE_c/edit?usp=sharing)
+
+## Objetivos
+
+En este enlace puedes encontrar los objetivos de aprendizaje del taller:
+
+[Objetivos del Taller](https://docs.google.com/document/d/1PWnV78R6qgrT73ZbmB8As-1DhQJl5oxRIRYkyCbwYqs/edit?usp=sharing)
+
+Un objetivo no escrito, es que puedas tener la experiencia de utilizar un paradigma de trabajo basado en utilizar un lenguaje de programación para lograr tus objetivos de análisis de datos comunicándote con tu computadora de manera efectiva y no solo respondiendo a lo que te requiere una aplicación predefinida y limitada.
+
+## Instalación de R y R Studio
+
+Para instalar R y R Studio en tu computadora, sigue las instrucciones en el siguiente enlace:
+
+-   [Instalación de R y RStudio](https://posit.co/download/rstudio-desktop/)
+
+## Directorio de Trabajo
+
+Para este taller, debes crear un directorio de trabajo en tu computadora. En este directorio, puedes guardar todos los archivos que crees durante el taller incluyendo los proyectos.
+
+1.  Crea una carpeta en tu computadora con el nombre **tallerUPRAg**.
+
+2.  Ir al menú **Tools** en R Studio, seleccionar **Global Options**, y en la pestaña **General**, en **Default working directory** seleccionar **Browse** y buscar la carpeta.
+
+3.  Guardar los cambios (**Apply** y **OK**).
+
+## Ventanas de R Studio
+
+En R Studio, hay cuatro ventanas principales:
+
+1.  **Script**: Para escribir y guardar código en diferentes tipos de archivos.
+2.  **Console**: Para ejecutar código en línea.
+3.  **Environment**: Para ver los objetos en memoria.
+4.  **Files, Plots, Packages, Help**: Para ver archivos, gráficos, paquetes y ayuda.
+
+Vamos a revisar de manera general cada ventana, y durante el taller vamos a trabajar con cada una de ellas de manera más detallada.
+
+## Tipos de Archivos
+
+En R, puedes escribir y editar códigos en diferentes tipos de archivos:
+
+1.  **R Script**: Archivo con extensión `.R` para escribir y guardar código.
+2.  **R Markdown**: Archivo con extensión `.Rmd` para escribir y guardar código y texto.
+3.  **Quarto Document**: Archivo con extensión `.qmd` para escribir y guardar código y texto.
+
+## Introducción a R Markdown
+
+R Markdown es una herramienta que combina texto y código en un solo documento. Puedes usar R Markdown para crear informes, presentaciones, libros y páginas web.
+
+Con el archivo `rmarkdown.Rmd`, vamos a prácticar cómo escribir texto, insertar códigos y ejecutar códigos.
+
+Además vamos a producir un archivo de presentación en Word o PowerPoint, usando el botón **Knit** y seleccionar **Word** o **PowerPoint**, o modificar el YAML header para seleccionar el formato de salida, escribiendo `output: word_document` o `output: powerpoint_presentation`.
+
+## Objetos en R
+
+R es un lenguaje orientado a objetos (OOL) y puedes trabajar con diferentes tipos de objetos (estructuras de datos, p. ej.) y asignarlos a un nombre.
+
+Para asignar un objeto a un nombre, usamos el operador de asignación `<-`. Por ejemplo:
+
+``` r
+x <- 5
+```
+
+Para crear el operador de asignación `<-`, puedes usar la combinación de teclas `Alt` + `-` en tu teclado Windows o `Option` + `-` en tu teclado Mac.
+
+NOTA: puedes usar el signo de igual `=` como operador de asignación, pero es menos común en R.
+
+## Tipos de Datos en R
+
+En R, puedes trabajar con diferentes tipos de datos o elementos. Algunos de los tipos de datos más comunes son:
+
+1.  **Numéricos**: Números reales.
+2.  **Enteros**: Números enteros.
+3.  **Lógicos**: Valores `TRUE` o `FALSE`.
+4.  **Caracteres**: Texto.
+5.  **Factores**: Categorías.
+6.  **Fecha y Hora**: Fechas y horas.
+
+## Estructuras de Datos en R
+
+En R, puedes utilizar diferentes estructuras de datos y trabajarlos como objetos. Algunas de las estructuras de datos más comunes son:
+
+1.  **Variables**: Almacenan un valor o un objeto simple.
+2.  **Vector**: Secuencia de elementos del mismo tipo.
+3.  **Matriz**: Arreglo bidimensional de elementos del mismo tipo.
+4.  **Lista**: Colección de objetos de diferentes tipos.
+5.  **Data Frame**: Tabla de datos con filas y columnas.
+6.  **Tibble**: Versión moderna de un data frame.
+
+Una gráfica o los resultados de un análisis estadístico también son estructuras de datos que se pueden asignar a un nombre de objeto.
+
+## Operaciones Básicas con Objetos de R
+
+En R, puedes realizar operaciones básicas con objetos, como asignar un valor a un objeto, realizar cálculos, modificar un objeto, eliminar elementos, entre otros.
+
+Para realizar operaciones básicas con objetos, puedes usar los siguientes operadores:
+
+1.  **Asignación**: `<-` o `=`. Para asignar un valor a un objeto.
+2.  **Aritméticos**: `+`, `-`, `*`, `/`, `^`. `sqrt()`, `log()`, `exp()`, `abs()`, `max()`, `min()`, `round()`, `trunc()`.
+3.  **Comparación**: `==`, `!=`, `>`, `<`, `>=`, `<=`.
+4.  **Lógicos**: `&` (AND), `|` (OR), `!` (NOT).\
+5.  **Concatenación**: `c()`. Para combinar elementos en un vector.
+6.  **Indexación**: `[]`. Para acceder a elementos de un vector, matriz o lista, y extraerlos o modificarlos.
