@@ -28,7 +28,7 @@ estudiantes
 1. Crea un vector con los nombres de tus amigos o familiares.
 2. Crea un vector con las edades de tus amigos o familiares.
 3. Crea un vector con las ciudades de tus amigos o familiares.
-4. Crea un data frame con la información anterior.
+4. Crea un data-frame con la información anterior.
 
 ### Usar datos contenidos en paquetes
 
